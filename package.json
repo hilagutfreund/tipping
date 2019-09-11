@@ -1,0 +1,24 @@
+{
+  "name": "hilagutfreund.github.io",
+  "version": "1.0.0",
+  "description": "Hila's Website hosted on github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hilagutfreund/hilagutfreund.github.io.git"
+  },
+  "author": "Hila Gutfreund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hilagutfreund/hilagutfreund.github.io/issues"
+  },
+  "homepage": "https://github.com/hilagutfreund/hilagutfreund.github.io#readme",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18",
+    // "ui-router": "^1.0.0-alpha.3"
+  }
+}

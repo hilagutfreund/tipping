@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html ng-app="tipApp">
+    <head>
+      <title>Hila Gutfreund Tipping Project</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- load bootstrap and fontawesome via CDN -->
+
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+     
+      <!-- fonts -->
+      <link href='https://fonts.googleapis.com/css?family=EB+Garamond|Quicksand:400,300,700|Marcellus+SC|Marcellus|Nova+Slim|Ribeye+Marrow|Almendra+Display|Playfair+Display:400,700italic,400italic,900italic,900' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="css/main.css" />
+
+      <link href="https://fonts.googleapis.com/css?family=Scada&display=swap" rel="stylesheet" />
+
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+
+      <!-- fav icon --> 
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon"/>
+
+      <!-- load angular and angular route via CDN -->
+     <!--  <script src="https://use.fontawesome.com/46f772ac20.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js" type="text/javascript"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+     
+      
+      <!-- main js -->
+      <script src="js/main.js"></script>
+  </head>
+
+
+  <body ng-controller="mainController">
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
+      <!-- TODO: Add SDKs for Firebase products that you want to use  https://firebase.google.com/docs/web/setup#config-web-app -->
+
+      <script>
+        // Your web app's Firebase configuration
+        // var firebaseConfig = {
+        //   apiKey: "AIzaSyDKd4sepVWeb9kyFSm0cJbRzpH7mFmGURY",
+        //   authDomain: "test-thesis1.firebaseapp.com",
+        //   databaseURL: "https://test-thesis1.firebaseio.com",
+        //   projectId: "test-thesis1",
+        //   storageBucket: "test-thesis1.appspot.com",
+        //   messagingSenderId: "169300980699",
+        //   appId: "1:169300980699:web:58a91c062bb26159c9edfe"
+        // };
+
+        // Initialize Firebase with a "default" Firebase project
+        //firebase.initializeApp(firebaseConfig);
+
+        //var defaultProject = firebase.initializeApp(firebaseConfig);
+
+        //console.log(defaultProject.name);  // "[DEFAULT]"
+
+        // Option 1: Access Firebase services via the defaultProject variable 
+        // var db = firebase.storage();
+        //var db = firebase.firestore();
+
+        // db.collection("users").add({
+        //     first: "Alan",
+        //     middle: "Mathison",
+        //     last: "Turing",
+        //     born: 1912
+        // })
+        // .then(function(docRef) {
+        //     console.log("Document written with ID: ", docRef.id);
+        // })
+        // .catch(function(error) {
+        //     console.error("Error adding document: ", error);
+        // });
+
+// Option 2: Access Firebase services using shorthand notation
+//defaultStorage = firebase.storage();
+//defaultFirestore = firebase.firestore();
+
+// Option 2: Access Firebase services using shorthand notation
+//defaultStorage = firebase.storage();
+//defaultFirestore = firebase.firestore();
+      </script>
+
+
+    <div id="navDiv">
+        <ul class="nav nav-justified">
+          <li><a ui-sref="start" ui-sref-active-eq="active">Start</a></li>
+          <li><a ui-sref="ambiguous" ui-sref-active-eq="active"> Tip1</a></li> 
+          <li><a ui-sref="tipjar" ui-sref-active-eq="active"> Tip2</a></li> 
+          <li><a ui-sref="confirmation" ui-sref-active-eq="active"> Confirmation</a></li>           
+        </ul>
+    </div> 
+  
+
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+         <div ui-view></div>
+    </div>
+
+    <footer>
+      
+
+    </footer>
+
+  </body>
+</html>
