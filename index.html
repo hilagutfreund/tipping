@@ -30,64 +30,16 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
      
-      
+      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
       <!-- main js -->
       <script src="js/main.js"></script>
   </head>
 
 
   <body ng-controller="mainController">
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
-      <!-- TODO: Add SDKs for Firebase products that you want to use  https://firebase.google.com/docs/web/setup#config-web-app -->
-
-      <script>
-        // Your web app's Firebase configuration
-        // var firebaseConfig = {
-        //   apiKey: "AIzaSyDKd4sepVWeb9kyFSm0cJbRzpH7mFmGURY",
-        //   authDomain: "test-thesis1.firebaseapp.com",
-        //   databaseURL: "https://test-thesis1.firebaseio.com",
-        //   projectId: "test-thesis1",
-        //   storageBucket: "test-thesis1.appspot.com",
-        //   messagingSenderId: "169300980699",
-        //   appId: "1:169300980699:web:58a91c062bb26159c9edfe"
-        // };
-
-        // Initialize Firebase with a "default" Firebase project
-        //firebase.initializeApp(firebaseConfig);
-
-        //var defaultProject = firebase.initializeApp(firebaseConfig);
-
-        //console.log(defaultProject.name);  // "[DEFAULT]"
-
-        // Option 1: Access Firebase services via the defaultProject variable 
-        // var db = firebase.storage();
-        //var db = firebase.firestore();
-
-        // db.collection("users").add({
-        //     first: "Alan",
-        //     middle: "Mathison",
-        //     last: "Turing",
-        //     born: 1912
-        // })
-        // .then(function(docRef) {
-        //     console.log("Document written with ID: ", docRef.id);
-        // })
-        // .catch(function(error) {
-        //     console.error("Error adding document: ", error);
-        // });
-
-// Option 2: Access Firebase services using shorthand notation
-//defaultStorage = firebase.storage();
-//defaultFirestore = firebase.firestore();
-
-// Option 2: Access Firebase services using shorthand notation
-//defaultStorage = firebase.storage();
-//defaultFirestore = firebase.firestore();
-      </script>
-
-
+     
     <div id="navDiv">
         <ul class="nav nav-justified">
           <li><a ui-sref="start" ui-sref-active-eq="active">Start</a></li>
