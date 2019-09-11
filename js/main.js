@@ -1,3 +1,18 @@
+// Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDKd4sepVWeb9kyFSm0cJbRzpH7mFmGURY",
+    authDomain: "test-thesis1.firebaseapp.com",
+    databaseURL: "https://test-thesis1.firebaseio.com",
+    projectId: "test-thesis1",
+    storageBucket: "test-thesis1.appspot.com",
+    messagingSenderId: "169300980699",
+    appId: "1:169300980699:web:58a91c062bb26159c9edfe"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.config(function($stateProvider, $urlRouterProvider){
@@ -40,23 +55,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.controller('ambiguousController', function($scope) {
 
-        // Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyDKd4sepVWeb9kyFSm0cJbRzpH7mFmGURY",
-            authDomain: "test-thesis1.firebaseapp.com",
-            databaseURL: "https://test-thesis1.firebaseio.com",
-            projectId: "test-thesis1",
-            storageBucket: "test-thesis1.appspot.com",
-            messagingSenderId: "169300980699",
-            appId: "1:169300980699:web:58a91c062bb26159c9edfe"
-        };
-
-    // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
         var db = firebase.firestore();
 
-    //read current "user-1/clicked" value
+        //read current "user-1/clicked" value
         db.collection("users")
           .doc("user-1")
           .get()
