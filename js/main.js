@@ -33,7 +33,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
    
     // create the controller and inject Angular's $scope
     tipApp.controller('mainController', function($scope, $rootScope) {
-        //$scope.resume = "documents-forweb/HILAGUTFREUND-Website-resume-2018.pdf"; 
+    });
+    
+    tipApp.controller('startController', function($scope, $rootScope) {
+    });
+
+    tipApp.controller('ambiguousController', function($scope) {
+
         // Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyDKd4sepVWeb9kyFSm0cJbRzpH7mFmGURY",
@@ -99,18 +105,12 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             console.log(doc.id + "->clicked:" + user1.clicked);
             $("#TipAmount").html(user1.clicked);
         }
+        
+    });
 
-});
-    
-tipApp.controller('startController', function($scope, $rootScope) {
-});
+    tipApp.controller('tipjarController', function($scope) {
+    });
 
-tipApp.controller('ambiguousController', function($scope) {
-});
-
-tipApp.controller('tipjarController', function($scope) {
-});
-
-tipApp.controller('confirmationController', function($scope) {
-});
+    tipApp.controller('confirmationController', function($scope) {
+    });
 
