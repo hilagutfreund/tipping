@@ -105,6 +105,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             var user1 = doc.data();
             console.log(doc.id + "->clicked:" + user1.clicked);
             $("#TipAmount").html(user1.clicked);
+            $scope.tipAmount = user1.clicked; 
         }
         
     });
