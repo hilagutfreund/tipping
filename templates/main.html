@@ -1,64 +1,20 @@
 
-<div id="projects" class="center">
-    <div>
-    <h2>Projects</h2>
-    <h5>Coding and UX projects</h5>
 
-        <div class="container-fluid">
-          <div class="row is-flex">
-              <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-repeat="project in myprojects">  
-                 <div class="list-content">    
-                  <a href="{{project.link}}"><h4>{{project.title}}</h4></a>  
-                  <a href="{{project.link}}" target="_blank"><img class="image-holder block-center thumbnail" ng-src="{{project.image}}" alt=""/></a> 
-                  <p id="projectDesc">{{project.description}}</p>  
-                  <p>{{project.year}}</p>
-                  <a href="{{project.docLink}}" target="_blank">Documentation <i class="fa fa-external-link-square" aria-hidden="true"></i></a>  
-                </div>  
-              </div>  
+<h1>Participant intake page (start)</h1>
 
-          </div>
-        </div>
+<br>
 
-    </div>
-</div>
+<div id="navDiv">
+    <ul class="nav nav-justified">
+      <li><a ui-sref="start" ui-sref-active-eq="active">Start</a></li>
+      <li><a ui-sref="ambiguous" ui-sref-active-eq="active"> Tip1</a></li> 
+      <li><a ui-sref="tipjar" ui-sref-active-eq="active"> Tip2</a></li> 
+      <li><a ui-sref="barista" ui-sref-active-eq="active"> Tip3</a></li> 
+      <li><a ui-sref="confirmation" ui-sref-active-eq="active"> Confirmation</a></li>           
+    </ul>
+</div> 
 
-<!-- <br> -->
-
-<!-- <div #insta>
-<h2>Writing Samples</h2>
-<h5>Essays from over the years</h5>
-    <div class="project gallery">
-        <div class="inner">
-          <ul class="list">  
-           <li class="list-item" ng-repeat="document in mydocuments">  
-             <div class="list-content">    
-              <a href="{{document.link}}"><h4>{{document.title}}</h4></a>  
-              <a href="{{document.link}}"><img id="projectImage" ng-src="{{document.image}}" alt=""/></a>
-              <p id="projectDesc">{{document.description}}</p>  
-              <p>{{document.year}}</p>
-              <a href="{{document.other}}">{{document.otherDesc}}</a>
-            </div>  
-          </li>  
-        </ul>
-        </div>
-
-    </div>
-</div> -->
-
-<!-- <br>  -->
-
-<div>
-<a href="https://www.instagram.com/hilariousdesigns/"><h2>HILArious Designs</h2></a>
-<h5>Instagram showcasing my latest design and pattern work</h5>
-  <div class="instagram gallery container-fluid" ng-if="photosready=true">
-    <div class="row" ng-if="photosready=true">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3" ng-repeat="image in myfeed" ng-if="photosready=true"> 
-        <div class="list-content">
-           <a href="{{image.link}}" target="_blank"><img ng-src="{{image['images']['low_resolution']['url']}}" class="thumbnail block-center image-holder-insta" alt="" /></a> 
-        </div>
-      </div> 
-    </div>
-  </div>
-</div>
+<br>
+<!--this is where i need to start putting input fields... and dropdowns and all that jazz--> 
 
 
