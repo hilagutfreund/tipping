@@ -27,9 +27,6 @@ body {
     margin: auto 20px auto 20px;
 }
 
-/*img{
-  width: 100px;
-}*/
 
 div.title{
   display: flex; 
@@ -48,6 +45,7 @@ div.title{
 
 img{
   max-height: 75px;
+  border-radius: 75px;
 }
 
 div.TipButtons{
