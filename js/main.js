@@ -60,12 +60,19 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     tipApp.controller('startController', function($scope, $rootScope) {
         $scope.message="hello";
 
-        var db = firebase.firestore(); 
+          db.collection("participants")
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, " => ", doc.data());
+                });
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
+
        
-        db.collection("participants").doc().get().then(function(participant){
-            let arr = Object.entries(snapshot).map(e => Object.assign(e[1], { key: e[0] }));
-        });
-        console.log(arr);
        
     });
     
