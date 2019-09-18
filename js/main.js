@@ -58,8 +58,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
     
     tipApp.controller('startController', function($scope, $rootScope) {
-        $scope.message="hello";
-
+        
+        var db = firebase.firestore();
           db.collection("participants")
             .get()
             .then(function(querySnapshot) {
@@ -72,7 +72,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 console.log("Error getting documents: ", error);
             });
 
-       
+       $scope.message="hello";
        
     });
     
