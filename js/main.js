@@ -68,7 +68,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 querySnapshot.forEach(function(doc) {
                     // doc.data() is never undefined for query doc snapshots
                     //console.log(doc.id, " => ", doc.data());
-                    $scope.participants.push({id:doc.id, data:doc.data}); 
+                    $scope.participants.push({id:doc.id, data:doc.data()}); 
 
                 });
             })
