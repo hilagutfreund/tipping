@@ -61,9 +61,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         $scope.message="hello";
 
         var db = firebase.firestore(); 
+       
         db.collection("participants").doc().get().then(function(participant){
-            console.log(participant); 
-        })
+            let arr = Object.entries(snapshot).map(e => Object.assign(e[1], { key: e[0] }));
+        });
+        console.log(arr);
        
     });
     
