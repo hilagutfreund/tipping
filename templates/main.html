@@ -21,8 +21,7 @@
   <div>{{message}}</div>
   </br>
   <h5>Participant: </h5>
-  <select ng-options="participant in participants" ng-model="selected"></select>
-  <select ng-options="participant as participant.id for participant in participants" ng-model="selected"></select>
+  <select ng-options="participant as participant.id in participants" ng-model="selected"></select>
 
 
 </div>
