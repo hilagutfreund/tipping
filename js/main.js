@@ -61,9 +61,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         $scope.message="hello";
 
         var db = firebase.firestore(); 
-        var participants = db.collection("participants").get(); 
-        $scope.participants = participants; 
-        console.log(participants); 
+        db.collection("participants").doc().get().then(function(participant){
+            console.log(participant); 
+        })
+       
     });
     
 
