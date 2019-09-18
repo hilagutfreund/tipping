@@ -58,7 +58,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
     
     tipApp.controller('startController', function($scope, $rootScope) {
+        $scope.message="hello"
+        var db = firebase.firestore(); 
+        $scope.participants = db.collection("participants").get(); 
     });
+    console.log($scope.participants); 
 
     tipApp.controller('ambiguousController', function($scope) {
 
