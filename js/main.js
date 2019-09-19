@@ -57,7 +57,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     tipApp.controller('mainController', function($scope, $rootScope) {
     });
     
-    tipApp.controller('startController', function($scope, $rootScope) {
+    tipApp.controller('startController', function($scope, $rootScope, $timeout) {
         $scope.message="hello";
         $scope.participants = [];
         $scope.selected = {
@@ -80,7 +80,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 querySnapshot.forEach(function(doc) {
                     // doc.data() is never undefined for query doc snapshots
                     //console.log(doc.id, " => ", doc.data());
-                    $scope.participants.push({id:doc.id, data:doc.data()}); 
+                    $timeout(function(){
+                        $scope.participants.push({id:doc.id, data:doc.data()}); 
+                        console.log($scope.participants); 
+                    });
 
                 });
             })
@@ -88,7 +91,6 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 console.log("Error getting documents: ", error);
             });
 
-            console.log($scope.participants); 
 
        
        
