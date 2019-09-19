@@ -82,10 +82,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                     //console.log(doc.id, " => ", doc.data());
                     $timeout(function(){
                         $scope.participants.push({id:doc.id, data:doc.data()}); 
-                        console.log($scope.participants); 
                     });
+                    
 
                 });
+                console.log($scope.participants); 
             })
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
