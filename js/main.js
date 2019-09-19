@@ -59,7 +59,19 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     
     tipApp.controller('startController', function($scope, $rootScope) {
         $scope.message="hello";
-        $scope.participants = []; 
+        $scope.participants = [];
+        $scope.selected = {
+            id:"x",
+            IA:"",
+            device:""
+        };
+        $scope.onSelectParticipant = function(newId,oldValue){
+            var par = $scope.participants.find(p=>p.id==newId);
+            if(par!==undefined){
+                $scope.selected.IA = par.data.IA;
+                $scope.selected.device = par.data.device;
+            }
+        }
 
         var db = firebase.firestore();
           db.collection("participants")
