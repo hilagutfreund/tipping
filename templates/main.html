@@ -23,7 +23,7 @@
   <h5>Participant: </h5>
   <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant">
     <option value="x">-- Select --</option>
-    <option value="{{participant.data.id}}" ng-repeat="participant in participants">{{participants.data.id}}</option>
+    <option value="{{participant.data.id}}" ng-repeat="participant in participants">{{participant.data.id}}</option>
   </select>
 
   <div>Selected  IA:{{selected.IA}}</div>
