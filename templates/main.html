@@ -21,7 +21,7 @@
   <div>{{message}}</div>
   </br>
   <h5>Participant: </h5>
-  <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant">
+  <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
     <option value="x">-- Select --</option>
     <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
   </select>

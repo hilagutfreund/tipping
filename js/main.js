@@ -65,7 +65,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:"",
             device:""
         };
-        $scope.onSelectParticipant = function(newId,oldValue){
+        $scope.onSelectParticipant = function(){
+            var newId = $scope.selected.id;
             var par = $scope.participants.find(p=>p.id==newId);
             if(par!==undefined){
                 $scope.selected.IA = par.data.IA;
