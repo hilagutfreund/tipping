@@ -177,12 +177,20 @@ div.receiptButtons{
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     margin: 5px;
     box-sizing: content-box;
     flex-grow: 1;
     min-height: 50px;
+}
+
+div > h5 > .receiptButtonsText{
+  color: #000000; 
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal; 
+  margin: auto;  
 }
 
 
