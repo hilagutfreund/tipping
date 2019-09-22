@@ -17,7 +17,36 @@
 
 <br>
 
-<div>
+<div class ="parent-confirm">
+  <div class="main-confirm">
+
+     <!-- <div class="receiptMisc">
+
+        <div class="receiptButtons"> 
+          <h5 class="receiptButtonsText"><i class="fa fa-print" aria-hidden="true"></i>  Print Receipt</h5>
+        </div>
+
+        <div class="receiptButtons"> 
+          <h5 class="receiptButtonsText"><i class="fa fa-ban" aria-hidden="true"></i>  No Thanks</h5>
+        </div>
+
+    </div>  -->
+
+    <div>{{message}}</div>
+    </br>
+    <h5>Participant: </h5>
+    <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
+      <option value="x">-- Select --</option>
+      <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
+    </select>
+
+    <div>Selected  IA:{{selected.IA}}</div>
+    <div>Selected  device:{{selected.device}}</div>
+
+  </div>
+</div>
+
+<!-- <div>
   <div>{{message}}</div>
   </br>
   <h5>Participant: </h5>
@@ -30,7 +59,7 @@
   <div>Selected  device:{{selected.device}}</div>
 
 
-</div>
+</div> -->
 
 <!--this is where i need to start putting input fields... and dropdowns and all that jazz--> 
 
