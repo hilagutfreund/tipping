@@ -185,7 +185,7 @@ div.receiptButtons{
     min-height: 50px;
 }
 
-div > h5 > .receiptButtonsText{
+.receiptButtonsText{
   color: #000000; 
   font-family: Roboto;
   font-style: normal;
