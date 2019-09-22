@@ -122,6 +122,7 @@ div.tipMiscButtons{
     min-height: 50px;
 }
 
+
 div > h5{
   color: #2996CC; 
   font-family: Roboto;
@@ -151,6 +152,39 @@ div.close{
   left: 2%;
   top: 2%; 
 }
+
+
+.main-confirm{
+    padding: 5%;
+    /*background: #FEFEFE;*/
+    /*border: 1px solid #C2C7CC;*/
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin: auto 20px auto 20px;
+}
+
+div.receiptButtons{
+    position: relative;
+     width: 100%; 
+    /* height: 50%; */
+    margin: 2% auto;
+    /*background: #FAFBFC;*/
+    background: #FEFEFE;
+    border: 1px solid #C2C7CC;
+    box-sizing: border-box;
+    border-radius: 3px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    box-sizing: content-box;
+    flex-grow: 1;
+    min-height: 50px;
+}
+
+
 
 
 
