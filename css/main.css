@@ -153,6 +153,16 @@ div.close{
   top: 2%; 
 }
 
+.parent-confirm{
+  /*position: absolute;*/
+  top:60px;
+  left:0;
+  right:0;
+  bottom:0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+}
 
 .main-confirm{
     padding: 5%;
@@ -177,8 +187,8 @@ div.receiptButtons{
     text-align: left;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
-    align-items: center;
+    justify-content: left;
+    /*align-items: left;*/
     margin: 5px;
     box-sizing: content-box;
     flex-grow: 1;
