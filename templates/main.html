@@ -17,8 +17,8 @@
 
 <br>
 
-<div class ="parent-confirm">
-  <div class="main-confirm">
+<div class ="parent-start">
+  <div class="main-start">
 
      <!-- <div class="receiptMisc">
 
@@ -31,18 +31,19 @@
         </div>
 
     </div>  -->
-
-    <div>{{message}}</div>
-    </br>
-    <h5>Participant: </h5>
-    <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
-      <option value="x">-- Select --</option>
-      <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
-    </select>
-
-    <div>Selected  IA:{{selected.IA}}</div>
-    <div>Selected  device:{{selected.device}}</div>
-
+    <div class="start-section">
+        <div>{{message}}</div>
+        </br>
+        <h5>Participant: </h5>
+        <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
+          <option value="x">-- Select --</option>
+          <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
+        </select>
+    </div>
+    <div class="start-section">
+        <div>Selected  IA:{{selected.IA}}</div>
+        <div>Selected  device:{{selected.device}}</div>
+    </div>
   </div>
 </div>
 
