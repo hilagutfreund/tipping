@@ -158,6 +158,7 @@ div.close{
     padding: 5%;
     /*background: #FEFEFE;*/
     /*border: 1px solid #C2C7CC;*/
+    width: 60%;
     box-sizing: border-box;
     border-radius: 3px;
     margin: auto 20px auto 20px;
