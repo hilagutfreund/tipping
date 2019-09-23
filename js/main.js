@@ -65,6 +65,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:"",
             device:""
         };
+
         $scope.onSelectParticipant = function(){
             var newId = $scope.selected.id;
             var par = $scope.participants.find(p=>p.id==newId);
@@ -104,6 +105,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.controller('ambiguousController', function($scope, $state, $stateParams) {
         $scope.userid = $stateParams.userid; 
+        console.log("scope userid: " $scope.userid)
 
 
         var db = firebase.firestore();
@@ -145,8 +147,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         });
 
     //Listen to user-1/* data changes
-        db.collection("users")
-          .doc("user-1")
+        db.collection("participants")
+          .doc($scope.userid)
           .onSnapshot(function(doc){
             showClickedButton(doc);
           });
