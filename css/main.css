@@ -313,9 +313,9 @@ div.startButton{
     box-sizing: border-box;
     border-radius: 3px;
     text-align: center;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 5px;
     box-sizing: content-box;
