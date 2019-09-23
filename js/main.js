@@ -62,8 +62,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         $scope.participants = [];
         $scope.selected = {
             id:"x",
-            IA:"x",
-            device:"x"
+            IA:"",
+            device:""
         };
         $scope.onSelectParticipant = function(){
             var newId = $scope.selected.id;
@@ -72,8 +72,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 $scope.selected.IA = par.data.IA;
                 $scope.selected.device = par.data.device;
             }else{
-                $scope.selected.IA = "x";
-                $scope.selected.device = "x";
+                $scope.selected.IA = "";
+                $scope.selected.device = "";
             }
         }
 
