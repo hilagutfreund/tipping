@@ -226,6 +226,7 @@ i{
 
 .main-start{
     padding: 5%;
+    width: 60%;
     background: #FEFEFE;
     border: 1px solid #C2C7CC;
     box-sizing: border-box;
@@ -236,6 +237,7 @@ i{
 
 div.start-section{
     display: flex;
+    width: 50%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -246,6 +248,25 @@ div.start-section{
     margin: auto auto 20px auto; 
 }
 
+
+
+/*big tip buttons*/
+div.start-column{
+    /* position: relative; */
+    min-width: 160px;
+    /*background: #FAFBFC;*/
+    /*border: 1px solid #C2C7CC;*/
+    /*box-sizing: border-box;*/
+    /*border-radius: 3px;*/
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: 5px;
+    /*min-height: 50px;*/
+}
 
 
 
