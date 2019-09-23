@@ -24,8 +24,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             controller: 'startController'
         })
 
-        .state('ambiguous?userid', {
-            url: '/tip1', 
+        .state('ambiguous', {
+            url: '/tip1?userid', 
             templateUrl: "templates/tipambiguous.html", 
             controller: 'ambiguousController'
 
