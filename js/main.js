@@ -54,10 +54,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
    
     // create the controller and inject Angular's $scope
-    tipApp.controller('mainController', function($scope, $rootScope) {
+    tipApp.controller('mainController', function($scope, $rootScope, $stateParams) {
     });
     
-    tipApp.controller('startController', function($scope, $rootScope, $timeout) {
+    tipApp.controller('startController', function($scope, $rootScope, $timeout, $stateParams) {
         $scope.message="hello";
         $scope.participants = [];
         $scope.selected = {
@@ -102,13 +102,14 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
     
 
-    tipApp.controller('ambiguousController', function($scope) {
+    tipApp.controller('ambiguousController', function($scope, $stateParams) {
+        $scope.user.id = $stateParams.user.id; 
 
         var db = firebase.firestore();
 
         //read current "user-1/clicked" value
-        db.collection("users")
-          .doc("user-1")
+        db.collection("participants")
+          .doc($scope.user.id)
           .get()
           .then( function(doc){
             showClickedButton(doc);
@@ -160,7 +161,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         
     });
 
-    tipApp.controller('tipjarController', function($scope) {
+    tipApp.controller('tipjarController', function($scope, $stateParams) {
         var db = firebase.firestore();
 
         //read current "user-1/clicked" value
@@ -217,7 +218,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
 
 
-    tipApp.controller('baristaController', function($scope) {
+    tipApp.controller('baristaController', function($scope, $stateParams) {
         var db = firebase.firestore();
 
         //read current "user-1/clicked" value
@@ -273,6 +274,6 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         }
     });
 
-    tipApp.controller('confirmationController', function($scope) {
+    tipApp.controller('confirmationController', function($scope, $stateParams) {
     });
 
