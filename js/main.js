@@ -105,7 +105,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.controller('ambiguousController', function($scope, $state, $stateParams) {
         $scope.userid = $stateParams.userid; 
-        console.log("scope userid: " $scope.userid)
+        console.log("scope userid: " $scope.userid);
 
 
         var db = firebase.firestore();
