@@ -71,6 +71,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             if(par!==undefined){
                 $scope.selected.IA = par.data.IA;
                 $scope.selected.device = par.data.device;
+            }else{
+                $scope.selected.IA = "x";
+                $scope.selected.device = "x";
             }
         }
 
