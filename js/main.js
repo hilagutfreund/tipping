@@ -24,7 +24,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             controller: 'startController'
         })
 
-        .state('ambiguous', {
+        .state('ambiguous?userid', {
             url: '/tip1', 
             templateUrl: "templates/tipambiguous.html", 
             controller: 'ambiguousController'
@@ -103,13 +103,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     
 
     tipApp.controller('ambiguousController', function($scope, $stateParams) {
-        $scope.user.id = $stateParams.user.id; 
+        $scope.userid = $stateParams.userid; 
 
         var db = firebase.firestore();
 
         //read current "user-1/clicked" value
         db.collection("participants")
-          .doc($scope.user.id)
+          .doc($scope.userid)
           .get()
           .then( function(doc){
             showClickedButton(doc);
@@ -117,8 +117,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     //Update user-1/clicked value
         function writeClickedButton(val){
-          db.collection("users")
-          .doc("user-1")
+          db.collection("participants")
+          .doc($scope.userid)
           .set({
             clicked:val
           });
