@@ -32,20 +32,65 @@
 
     </div>  -->
     <div class="start-section">
-        <div>{{message}}</div>
-        </br>
-        <h5>Participant: </h5>
+        <h4>Participant: </h4>
         <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
           <option value="x">-- Select --</option>
           <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
         </select>
     </div>
     <div class="start-section">
-        <div class="start-column">Selected  IA:{{selected.IA}}</div>
-        <div class="start-column">Selected  device:{{selected.device}}</div>
+      <div class="start-column">
+        <div>Selected  IA:{{selected.IA}}</div>
+        <div>Selected  device:{{selected.device}}</div>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+
+       
+        <div class="start-section">
+
+          <div class="participant" >
+            <div class="startText">
+              <h4>Participant: </h4>
+              <select xng-options="" ng-model="selected.id" ng-change="onSelectParticipant()">
+                <option value="x">-- Select --</option>
+                <option value="{{participant.id}}" ng-repeat="participant in participants">{{participant.id}}</option>
+              </select>
+         
+            </div>
+          </div>
+         
+     <!--      <div class="participant" >
+            <div class="startText">
+              <h2>15%</h2>
+              <div>$0.75</div>
+            </div>
+          </div>
+           
+          <div class="paricipant" >
+             <div class="startText">
+                <h2>18%</h2>
+                <div>$0.90</div>
+              </div>
+          </div> -->
+          
+        </div>
+        
+        <div class="info">
+          <div class="startInfo"> 
+            <p>Selected  IA:{{selected.IA}}</p>
+          </div>
+          
+           <div class="startInfo"> 
+            <p>Selected  device:{{selected.device}}</p>
+          </div>
+          
+        </div> 
+      
 
 <!-- <div>
   <div>{{message}}</div>
