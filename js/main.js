@@ -66,6 +66,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             device:""
         };
 
+        // $scope.getLinkUrl = function(){
+        //     return $state.href('ambiguous', {userid: $scope.selected.id});
+        // };
+
         $scope.onSelectParticipant = function(){
             var newId = $scope.selected.id;
             var par = $scope.participants.find(p=>p.id==newId);
