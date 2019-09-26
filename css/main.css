@@ -303,6 +303,11 @@ div.startInfo{
     min-height: 50px;
 }
 
+div.start{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+}
 div.startButton{
     position: relative;
      width: 50%; 
