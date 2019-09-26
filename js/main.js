@@ -27,21 +27,21 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         .state('ambiguous', {
             url: '/tip1?userid', 
             templateUrl: "templates/tipambiguous.html", 
-            controller: 'ambiguousController'
+            controller: 'tipController'
 
         })
 
          .state('tipjar', {
             url: '/tip2', 
             templateUrl: "templates/tipjar.html", 
-            controller: 'tipjarController'
+            controller: 'tipController'
 
         })
 
          .state('barista', {
             url: '/tip3', 
             templateUrl: "templates/barista.html", 
-            controller: 'baristaController'
+            controller: 'tipController'
 
         })
 
@@ -107,10 +107,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
     
 
-    tipApp.controller('ambiguousController', function($scope, $state, $stateParams) {
+    tipApp.controller('tipController', function($scope, $state, $stateParams) {
         $scope.userid = $stateParams.userid; 
-       console.log( "->user id from param:" + $stateParams.userid);
-       console.log( "->user id from scope:" + $scope.userid);
+        console.log( "->user id from param:" + $stateParams.userid);
+        console.log( "->user id from scope:" + $scope.userid);
 
 
         var db = firebase.firestore();
@@ -120,6 +120,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .doc($scope.userid)
           .get()
           .then( function(doc){
+            $scope.data = doc.data(); 
             showClickedButton(doc);
           });
 
@@ -129,6 +130,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .doc($scope.userid)
           .set({
             clicked:val
+            IA = $scope.data.IA;
+            device = $scope.data.device; 
+            switch = $scope.data.switch; 
           });
         }
 
@@ -169,118 +173,118 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         
     });
 
-    tipApp.controller('tipjarController', function($scope, $stateParams) {
-        var db = firebase.firestore();
+    // tipApp.controller('tipjarController', function($scope, $stateParams) {
+    //     var db = firebase.firestore();
 
-        //read current "user-1/clicked" value
-        db.collection("users")
-          .doc("user-1")
-          .get()
-          .then( function(doc){
-            showClickedButton(doc);
-          });
+    //     //read current "user-1/clicked" value
+    //     db.collection("users")
+    //       .doc("user-1")
+    //       .get()
+    //       .then( function(doc){
+    //         showClickedButton(doc);
+    //       });
 
-    //Update user-1/clicked value
-        function writeClickedButton(val){
-          db.collection("users")
-          .doc("user-1")
-          .set({
-            clicked:val
-          });
-        }
+    // //Update user-1/clicked value
+    //     function writeClickedButton(val){
+    //       db.collection("users")
+    //       .doc("user-1")
+    //       .set({
+    //         clicked:val
+    //       });
+    //     }
 
-    //Add buttons click handlers
-        $(function(){
-          $("#Button_10").click(function(){
-            writeClickedButton("+10%");
-          })
-          $("#Button_15").click(function(){
-            writeClickedButton("+15%");
-          })
-          $("#Button_18").click(function(){
-            writeClickedButton("+18%");
-          })
-          $("#Button_custom").click(function(){
-            writeClickedButton("+custom tip");
-          })
-          $("#Button_none").click(function(){
-            writeClickedButton("");
-          })
-        });
+    // //Add buttons click handlers
+    //     $(function(){
+    //       $("#Button_10").click(function(){
+    //         writeClickedButton("+10%");
+    //       })
+    //       $("#Button_15").click(function(){
+    //         writeClickedButton("+15%");
+    //       })
+    //       $("#Button_18").click(function(){
+    //         writeClickedButton("+18%");
+    //       })
+    //       $("#Button_custom").click(function(){
+    //         writeClickedButton("+custom tip");
+    //       })
+    //       $("#Button_none").click(function(){
+    //         writeClickedButton("");
+    //       })
+    //     });
 
-    //Listen to user-1/* data changes
-        db.collection("users")
-          .doc("user-1")
-          .onSnapshot(function(doc){
-            showClickedButton(doc);
-          });
+    // //Listen to user-1/* data changes
+    //     db.collection("users")
+    //       .doc("user-1")
+    //       .onSnapshot(function(doc){
+    //         showClickedButton(doc);
+    //       });
 
-    //Read the user document data and write the clickd button value to the DOM
-        function showClickedButton(doc){
-            var user1 = doc.data();
-            console.log(doc.id + "->clicked:" + user1.clicked);
-            $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
-            $("#TipAmount").html(user1.clicked);
-            console.log($scope.tipClicked); 
-        }
-    });
+    // //Read the user document data and write the clickd button value to the DOM
+    //     function showClickedButton(doc){
+    //         var user1 = doc.data();
+    //         console.log(doc.id + "->clicked:" + user1.clicked);
+    //         $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
+    //         $("#TipAmount").html(user1.clicked);
+    //         console.log($scope.tipClicked); 
+    //     }
+    // });
 
 
-    tipApp.controller('baristaController', function($scope, $stateParams) {
-        var db = firebase.firestore();
+    // tipApp.controller('baristaController', function($scope, $stateParams) {
+    //     var db = firebase.firestore();
 
-        //read current "user-1/clicked" value
-        db.collection("users")
-          .doc("user-1")
-          .get()
-          .then( function(doc){
-            showClickedButton(doc);
-          });
+    //     //read current "user-1/clicked" value
+    //     db.collection("users")
+    //       .doc("user-1")
+    //       .get()
+    //       .then( function(doc){
+    //         showClickedButton(doc);
+    //       });
 
-    //Update user-1/clicked value
-        function writeClickedButton(val){
-          db.collection("users")
-          .doc("user-1")
-          .set({
-            clicked:val
-          });
-        }
+    // //Update user-1/clicked value
+    //     function writeClickedButton(val){
+    //       db.collection("users")
+    //       .doc("user-1")
+    //       .set({
+    //         clicked:val
+    //       });
+    //     }
 
-    //Add buttons click handlers
-        $(function(){
-          $("#Button_10").click(function(){
-            writeClickedButton("+10%");
-          })
-          $("#Button_15").click(function(){
-            writeClickedButton("+15%");
-          })
-          $("#Button_18").click(function(){
-            writeClickedButton("+18%");
-          })
-          $("#Button_custom").click(function(){
-            writeClickedButton("+custom tip");
-          })
-          $("#Button_none").click(function(){
-            writeClickedButton("");
-          })
-        });
+    // //Add buttons click handlers
+    //     $(function(){
+    //       $("#Button_10").click(function(){
+    //         writeClickedButton("+10%");
+    //       })
+    //       $("#Button_15").click(function(){
+    //         writeClickedButton("+15%");
+    //       })
+    //       $("#Button_18").click(function(){
+    //         writeClickedButton("+18%");
+    //       })
+    //       $("#Button_custom").click(function(){
+    //         writeClickedButton("+custom tip");
+    //       })
+    //       $("#Button_none").click(function(){
+    //         writeClickedButton("");
+    //       })
+    //     });
 
-    //Listen to user-1/* data changes
-        db.collection("users")
-          .doc("user-1")
-          .onSnapshot(function(doc){
-            showClickedButton(doc);
-          });
+    // //Listen to user-1/* data changes
+    //     db.collection("users")
+    //       .doc("user-1")
+    //       .onSnapshot(function(doc){
+    //         showClickedButton(doc);
+    //       });
 
-    //Read the user document data and write the clickd button value to the DOM
-        function showClickedButton(doc){
-            var user1 = doc.data();
-            console.log(doc.id + "->clicked:" + user1.clicked);
-            $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
-            $("#TipAmount").html(user1.clicked);
-            console.log($scope.tipClicked); 
-        }
-    });
+    // //Read the user document data and write the clickd button value to the DOM
+    //     function showClickedButton(doc){
+    //         var user1 = doc.data();
+    //         console.log(doc.id + "->clicked:" + user1.clicked);
+    //         $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
+    //         $("#TipAmount").html(user1.clicked);
+    //         console.log($scope.tipClicked); 
+    //     }
+    // });
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
     });
