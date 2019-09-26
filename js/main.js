@@ -101,8 +101,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             });
 
 
-       $scope.webPage(switch){
-        switch (switch) {
+       $scope.webPage= function(scenario){
+        switch (scenario) {
             case 'st':
                 $scope.web = 'tipjar';
                 break;
@@ -122,6 +122,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 $scope.web = "ambiguous";
                 break; 
             default:
+        }
        }
        
     });
