@@ -121,6 +121,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .get()
           .then( function(doc){
             $scope.data = doc.data(); 
+            console.log($scope.data); 
             showClickedButton(doc);
           });
 
@@ -165,10 +166,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     //Read the user document data and write the clickd button value to the DOM
         function showClickedButton(doc){
             var user1 = doc.data();
+            console.log(user1.IA); 
+            console.log(user1.device);
             console.log(doc.id + "->clicked:" + user1.clicked);
             $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
             $("#TipAmount").html(user1.clicked);
             console.log($scope.tipClicked); 
+
         }
         
     });
