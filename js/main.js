@@ -129,10 +129,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           db.collection("participants")
           .doc($scope.userid)
           .set({
-            clicked:val
-            IA = $scope.data.IA;
-            device = $scope.data.device; 
-            switch = $scope.data.switch; 
+            clicked:val,
+            IA = $scope.data.IA,
+            device = $scope.data.device,
+            switch = $scope.data.switch
           });
         }
 
