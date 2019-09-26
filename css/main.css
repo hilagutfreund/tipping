@@ -305,7 +305,7 @@ div.startInfo{
 
 div.startButton{
     position: relative;
-     width: 100%; 
+     width: 50%; 
     /* height: 50%; */
     margin: 2% auto;
     background: #FAFBFC;
@@ -314,7 +314,7 @@ div.startButton{
     border-radius: 3px;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 5px;
