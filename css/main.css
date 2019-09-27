@@ -306,11 +306,11 @@ div.startInfo{
 div.start{
   display:flex;
   flex-direction: row;
-  flex-wrap: wrap; 
+  flex-wrap: nowrap; 
 }
 div.startButton{
     position: relative;
-     width: 40%; 
+     /*width: 40%; */
     /* height: 50%; */
     margin: 2% auto;
     background: #FAFBFC;
@@ -319,7 +319,7 @@ div.startButton{
     border-radius: 3px;
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 5px;
