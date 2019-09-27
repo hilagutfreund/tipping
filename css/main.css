@@ -56,7 +56,7 @@ div.TipButtons{
     align-items: center;
     width: 30%;
     /*height: 40%;*/
-    flex-grow: 3;
+    flex-grow: 1;
     margin: auto auto 20px auto; 
 }
 
