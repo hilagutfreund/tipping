@@ -103,25 +103,26 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             });
 
 
+            //this is not working... so far can only hard code which thing.. 
        $scope.webPage = function(scenario){
         switch (scenario) {
             case 'st':
                 return 'tipjar';
                 break;
             case 'sm':
-                $scope.web = 'tipjar';
+                return 'tipjar';
                 break;
             case 'bt':
-                $scope.web = 'barista';
+                return'barista';
                 break; 
             case 'bm':
-                $scope.web = 'barista';
+                return 'barista';
                 break; 
             case 'at':
-                $scope.web = 'ambiguous';
+                return 'ambiguous';
                 break; 
             case 'am':
-                $scope.web = 'ambiguous';
+                return 'ambiguous';
                 break; 
             default:
         }
