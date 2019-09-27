@@ -310,7 +310,7 @@ div.start{
 }
 div.startButton{
     position: relative;
-     /*width: 40%; */
+     width: 40%; 
     /* height: 50%; */
     margin: 2% auto;
     background: #FAFBFC;
