@@ -1,0 +1,55 @@
+<div class="close">
+          <h2>
+        <span class="fa fa-times"></span> <!-- need to figure out how to click on this and go back to prev page -->
+        </h2>
+    </div>
+      
+      <div class="title">
+        <h2>$5.00 <span id="TipAmount"></span></h2>
+        <div class="typeOfTip">
+         <img src="img/tipjar.png"/ > 
+         <p>Donate to the staff tip jar. A little goes a long way!</p>
+        </div>
+      </div>
+ 
+    <div class ="parent">
+      <div class="main">
+       
+        <div class="TipButtons">
+
+          <form name="myForm" class="form-horizontal" >
+          <div class="form-group" ng-class="{'has-error': myForm.myDecimal.$invalid}">
+            <label for="inputText3" class="col-sm-2 control-label">What tip would you like to give?</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" name="myDecimal" placeholder="Decimal" ng-model="myDecimal" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required />
+
+              <span class="help-block" ng-show="!myForm.myDecimal.$valid">
+                Invalid!
+            </span>
+
+            </div>
+             
+        </div>
+               
+       <!--  <div class="form-group" >
+          <label for="inputText3" class="col-sm-2 control-label">The value:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="myDecimal" disabled />
+        </div> -->
+
+        </div>
+        </form>
+          
+    </div>
+        
+        <div class="tipMisc">
+          <div class="tipMiscButtons" id="Button_custom"> 
+            <h5>Confirm Tip Amount</h5>
+          </div>
+          
+        </div> 
+      
+      </div>
+    </div> 
+
+   

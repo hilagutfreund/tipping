@@ -51,6 +51,12 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             controller: 'confirmationController'
          })
 
+          .state('custom', {
+            url: '/custom',
+            templateUrl: "templates/customScreen.html", 
+            controller: 'customController'
+         })
+
     });
    
     // create the controller and inject Angular's $scope
@@ -205,4 +211,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
     });
+
+    // tipApp.controller('customController', function($scope, $rootScope, $stateParams) {
+    //     function myCtrl($scope) {
+    //     $scope.myDecimal = 0;
+    //     }
+
+    // });
 
