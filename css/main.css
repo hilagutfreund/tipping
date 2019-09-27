@@ -309,9 +309,9 @@ div.start{
   flex-wrap: nowrap; 
   width: 100%;
 }
-a.startButton > div.startButton{
+div.startButton{
     position: relative;
-     /*width: 100%; */
+     width: 30%; 
     /* height: 50%; */
     margin: 2% auto;
     background: #FAFBFC;
