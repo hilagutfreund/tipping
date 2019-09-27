@@ -329,7 +329,7 @@ a.startbutton{
     min-height: 50px;
 }
 
-/* div.startButton{
+ div.startButton{
     position: relative;
     width: 30%; 
     margin: 2% auto;
@@ -346,6 +346,6 @@ a.startbutton{
     box-sizing: content-box;
     flex-grow: 1;
     min-height: 50px;
-}*/
+}
 
 
