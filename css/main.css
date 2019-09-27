@@ -309,25 +309,6 @@ div.start{
   flex-wrap: nowrap; 
   width: 100%;
 }
-a.startbutton{
-   position: relative;
-    width: 30%; 
-    /* height: 50%; */
-    margin: 2% auto;
-    background: #FAFBFC;
-    border: 1px solid #C2C7CC;
-    box-sizing: border-box;
-    border-radius: 3px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    box-sizing: content-box;
-    flex-grow: 1;
-    min-height: 50px;
-}
 
  div.startButton{
     position: relative;
@@ -346,6 +327,12 @@ a.startbutton{
     box-sizing: content-box;
     flex-grow: 1;
     min-height: 50px;
+}
+
+a{
+  display: flex; 
+  /*flex-direction: row;
+  flex-wrap: nowrap; */
 }
 
 
