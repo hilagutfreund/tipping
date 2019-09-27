@@ -209,6 +209,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
+        $scope.tip = $stateParams.tip; 
+        $scope.userid = $stateParams.userid; 
+        console.log("user id " + $scope.userid); 
+
+        $scope.finalAmount = parseFloat($scope.tip)+5; 
     });
 
     // tipApp.controller('customController', function($scope, $rootScope, $stateParams) {
