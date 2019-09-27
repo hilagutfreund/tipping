@@ -307,10 +307,11 @@ div.start{
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap; 
+  width: 100%;
 }
 div.startButton{
     position: relative;
-     width: 40%; 
+     /*width: 100%; */
     /* height: 50%; */
     margin: 2% auto;
     background: #FAFBFC;
