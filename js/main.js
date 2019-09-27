@@ -46,16 +46,16 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         })
 
          .state('confirmation', {
-            url: '/confirmation',
+            url: '/confirmation?userid?tip',
             templateUrl: "templates/confirmationScreen.html", 
             controller: 'confirmationController'
          })
 
-          .state('custom', {
-            url: '/custom',
-            templateUrl: "templates/customScreen.html", 
-            controller: 'customController'
-         })
+         //  .state('custom', {
+         //    url: '/custom',
+         //    templateUrl: "templates/customScreen.html", 
+         //    controller: 'customController'
+         // })
 
     });
    
@@ -206,7 +206,6 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         }
         
     });
-
 
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
