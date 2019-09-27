@@ -48,10 +48,11 @@
       <div class="start">
         <!-- <div class="startButton"><a ui-sref="ambiguous({userid: '{{selected.id}}'})"><h5>Start</h5></a></div> -->
        <!--  <div class="startButton"><a ui-sref="ambiguous({userid: selected.id})"><h5>Start</h5></a></div> -->
-        <div class="startButton"><a ui-sref="{{switch}}({userid: selected.id})"><h5>Start Mobile</h5></a></div>
-        <div class="startButton"><a ng-if="selected.switch === 'st'" ui-sref="tipjar({userid: selected.id})"><h5>Start Webpage</h5></a></div>
-        <div class="startButton"><a ng-if="selected.switch === 'at'" ui-sref="ambiguous({userid: selected.id})"><h5>Start Webpage</h5></a></div>
-        <div class="startButton"><a ng-if="selected.switch === 'bt'" ui-sref="barista({userid: selected.id})"><h5>Start Webpage</h5></a></div>
+        <div class="startButton"><a ui-sref="{{selected.switch}}({userid: selected.id})"><h5>Start Mobile</h5></a></div>
+        <div class="startButton"><a ui-sref="{{selected.switch}}({userid: selected.id})"><h5>Start Web</h5></a></div>
+        <!-- <div class="startButton"><a ng-if="selected.switch === 'st'" ui-sref="tipjar({userid: selected.id})"><h5>Start Webpage</h5></a></div> -->
+        <!-- <div class="startButton"><a ng-if="selected.data.switch === 'at'" ui-sref="ambiguous({userid: selected.id})"><h5>Start Webpage</h5></a></div>
+        <div class="startButton"><a ng-if="selected.data.switch === 'bt'" ui-sref="barista({userid: selected.id})"><h5>Start Webpage</h5></a></div> -->
         
        <!--  <div class="startButton"><a ng-href="{{getLinkUrl()}}">Start</a></div> -->
       </div>
