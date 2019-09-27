@@ -32,14 +32,14 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         })
 
          .state('tipjar', {
-            url: '/tip2', 
+            url: '/tip2?userid', 
             templateUrl: "templates/tipjar.html", 
             controller: 'tipController'
 
         })
 
          .state('barista', {
-            url: '/tip3', 
+            url: '/tip3?userid', 
             templateUrl: "templates/barista.html", 
             controller: 'tipController'
 
