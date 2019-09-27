@@ -27,6 +27,12 @@ body {
     margin: auto 20px auto 20px;
 }
 
+a{
+  display: flex; 
+  width: 100%;
+  /*flex-direction: row;
+  flex-wrap: nowrap; */
+}
 
 div.title{
   display: flex; 
@@ -43,10 +49,11 @@ div.title{
   
 }
 
-img{
+img.circle{
   max-height: 75px;
   border-radius: 75px;
 }
+
 
 div.TipButtons{
     display: flex;
@@ -329,11 +336,6 @@ div.start{
     min-height: 50px;
 }
 
-a{
-  display: flex; 
-  width: 100%;
-  /*flex-direction: row;
-  flex-wrap: nowrap; */
-}
+
 
 
