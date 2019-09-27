@@ -54,7 +54,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
    
     // create the controller and inject Angular's $scope
-    tipApp.controller('mainController', function($scope, $rootScope, $state, $stateParams) {
+    tipApp.controller('mainController', function($scope, $rootScope, $stateParams) {
     });
     
     tipApp.controller('startController', function($scope, $rootScope, $timeout, $state, $stateParams) {
