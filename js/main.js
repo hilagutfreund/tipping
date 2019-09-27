@@ -106,22 +106,22 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
        $scope.webPage= function(scenario){
         switch (scenario) {
             case 'st':
-                $scope.web = tipjar;
+                $scope.web = 'tipjar';
                 break;
             case 'sm':
-                $scope.web = tipjar;
+                $scope.web = 'tipjar';
                 break;
             case 'bt':
-                $scope.web = barista;
+                $scope.web = 'barista';
                 break; 
             case 'bm':
-                $scope.web = barista;
+                $scope.web = 'barista';
                 break; 
             case 'at':
-                $scope.web = ambiguous;
+                $scope.web = 'ambiguous';
                 break; 
             case 'am':
-                $scope.web = ambiguous;
+                $scope.web = 'ambiguous';
                 break; 
             default:
         }
