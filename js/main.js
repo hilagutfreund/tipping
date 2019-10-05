@@ -209,16 +209,24 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
-        $scope.tip = $stateParams.tip; 
-        $scope.userid = $stateParams.userid; 
-        console.log( "->user id from param:" + $stateParams.userid);
-        console.log( "->user id from scope:" + $scope.userid);
-        console.log( "->tip from scope:" + $scope.tip);
-        console.log( "->tip parse:" + parseFloat($scope.tip).toFixed(2));
+        var usertip = $stateParams.tip; 
+        var strings = usertip.split("tip");
+        $scope.userid = strings[0]; 
+        $scope.tip = strings[1]; 
+        var parse = parseFloat($scope.tip).toFixed(2); 
+        $scope.finalAmount = parse + 5.00; 
+        console.log(finalAmount); 
+        
 
-        $scope.parse = parseFloat($scope.tip).toFixed(2); 
-        console.log ("scope.parse " + $scope.parse);
-        $scope.finalAmount = $scope.parse + 5.00; 
+        // $scope.userid = $stateParams.userid; 
+        // console.log( "->user id from param:" + $stateParams.userid);
+        // console.log( "->user id from scope:" + $scope.userid);
+        // console.log( "->tip from scope:" + $scope.tip);
+        // console.log( "->tip parse:" + parseFloat($scope.tip).toFixed(2));
+
+        // $scope.parse = parseFloat($scope.tip).toFixed(2); 
+        // console.log ("scope.parse " + $scope.parse);
+        // $scope.finalAmount = $scope.parse + 5.00; 
 
 
 
