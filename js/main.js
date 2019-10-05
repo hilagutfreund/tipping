@@ -217,7 +217,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         $scope.tip = strings[1];
         console.log("pls be tip: " + $scope.tip);  
         //var parse = parseFloat($scope.tip).toFixed(2); 
-        $scope.finalAmount = parseFloat($scope.tip) + parseFloat(5); 
+        var amount = parseFloat($scope.tip) + parseFloat(5); 
+        $scope.finalAmount = amount.toFixed(2); 
         console.log($scope.finalAmount); 
 
 
@@ -272,7 +273,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         db.collection("participants")
           .doc($scope.userid)
           .onSnapshot(function(doc){
-            showClickedButton(doc);
+            //showClickedButton(doc);
           });
 
     //Read the user document data and write the clickd button value to the DOM
