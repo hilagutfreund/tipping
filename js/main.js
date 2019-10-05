@@ -46,7 +46,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         })
 
          .state('confirmation', {
-            url: '/confirmation?userid?tip',
+            url: '/confirmation?useridtip',
             templateUrl: "templates/confirmationScreen.html", 
             controller: 'confirmationController'
          })
