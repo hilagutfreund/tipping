@@ -282,5 +282,5 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     //     $scope.myDecimal = 0;
     //     }
 
-    // });
+    });
 
