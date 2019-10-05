@@ -152,7 +152,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .then( function(doc){
             $scope.data = doc.data(); 
             console.log($scope.data); 
-            showClickedButton(doc);
+            //showClickedButton(doc);
           });
 
     //Update user-1/clicked value
@@ -170,40 +170,40 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     //Add buttons click handlers
         $(function(){
           $("#Button_10").click(function(){
-            writeClickedButton("+10%");
+            writeClickedButton("10%");
           })
           $("#Button_15").click(function(){
-            writeClickedButton("+15%");
+            writeClickedButton("15%");
           })
           $("#Button_18").click(function(){
-            writeClickedButton("+18%");
+            writeClickedButton("18%");
           })
-          $("#Button_custom").click(function(){
-            writeClickedButton("+custom tip");
-          })
+          // $("#Button_custom").click(function(){
+          //   writeClickedButton("+custom tip");
+          // })
           $("#Button_none").click(function(){
             writeClickedButton("");
           })
         });
 
     //Listen to user-1/* data changes
-        db.collection("participants")
-          .doc($scope.userid)
-          .onSnapshot(function(doc){
-            showClickedButton(doc);
-          });
+        // db.collection("participants")
+        //   .doc($scope.userid)
+        //   .onSnapshot(function(doc){
+        //     showClickedButton(doc);
+        //   });
 
     //Read the user document data and write the clickd button value to the DOM
-        function showClickedButton(doc){
-            var user1 = doc.data();
-            console.log("IA" + user1.IA); 
-            console.log("device" + user1.device);
-            console.log(doc.id + "->clicked:" + user1.clicked);
-            $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
-            $("#TipAmount").html(user1.clicked);
-            console.log($scope.tipClicked); 
+        // function showClickedButton(doc){
+        //     var user1 = doc.data();
+        //     console.log("IA" + user1.IA); 
+        //     console.log("device" + user1.device);
+        //     console.log(doc.id + "->clicked:" + user1.clicked);
+        //     $scope.tipClicked = user1.clicked; 
+        //     $("#TipAmount").html(user1.clicked);
+        //     console.log($scope.tipClicked); 
 
-        }
+        // }
         
     });
 
@@ -211,9 +211,70 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     tipApp.controller('confirmationController', function($scope, $stateParams) {
         $scope.tip = $stateParams.tip; 
         $scope.userid = $stateParams.userid; 
-        console.log("user id " + $scope.userid); 
+        console.log( "->user id from param:" + $stateParams.userid);
+        console.log( "->user id from scope:" + $scope.userid);
+        console.log( "->tip from scope:" + $scope.tip);
+        console.log( "->tip parse:" + parseFloat($scope.tip).toFixed(2));
 
-        $scope.finalAmount = parseFloat($scope.tip).toFixed(2)+5; 
+
+
+        var db = firebase.firestore();
+
+        //read current "user-1/clicked" value
+        db.collection("participants")
+          .doc($scope.userid)
+          .get()
+          .then( function(doc){
+            $scope.data = doc.data(); 
+            console.log($scope.data); 
+            //showClickedButton(doc);
+          });
+
+    //Update user-1/clicked value
+        function writeClickedButton(val){
+          db.collection("participants")
+          .doc($scope.userid)
+          .set({
+            clicked:val,
+            IA:$scope.data.IA,
+            device:$scope.data.device,
+            switch:$scope.data.switch,
+            finalTip: $scope.tip;  
+          });
+        }
+
+    //Add buttons click handlers
+        $(function(){
+          $("#Print").click(function(){
+            writeClickedButton("print receipt");
+          })
+          $("#None").click(function(){
+            writeClickedButton("no receipt");
+        });
+
+    //Listen to user-1/* data changes
+        db.collection("participants")
+          .doc($scope.userid)
+          .onSnapshot(function(doc){
+            //showClickedButton(doc);
+          });
+
+    //Read the user document data and write the clickd button value to the DOM
+        // function showClickedButton(doc){
+        //     var user1 = doc.data();
+        //     console.log("IA" + user1.IA); 
+        //     console.log("device" + user1.device);
+        //     console.log(doc.id + "->clicked:" + user1.clicked);
+        //     $scope.tipClicked = user1.clicked; //in case we need this at some point to know final tip amount... but won't work for custom tip.. oops. will need to get every click + record the final number
+        //     $("#TipAmount").html(user1.clicked);
+        //     console.log($scope.tipClicked); 
+
+        // }
+
+
+
+        $scope.parse = parseFloat($scope.tip).toFixed(2); 
+        $scope.finalAmount = $scope.parse + 5.00; 
     });
 
     // tipApp.controller('customController', function($scope, $rootScope, $stateParams) {
