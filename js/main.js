@@ -209,7 +209,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
     tipApp.controller('confirmationController', function($scope, $stateParams) {
-        var usertip = $stateParams.usertip; 
+        var usertip = $stateParams.useridtip; 
         console.log(usertip); 
         var strings = usertip.split("tip");
         $scope.userid = strings[0]; 
