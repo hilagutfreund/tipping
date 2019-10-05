@@ -216,6 +216,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         console.log( "->tip from scope:" + $scope.tip);
         console.log( "->tip parse:" + parseFloat($scope.tip).toFixed(2));
 
+        $scope.parse = parseFloat($scope.tip).toFixed(2); 
+        console.log ("scope.parse " + $scope.parse);
+        $scope.finalAmount = $scope.parse + 5.00; 
+
+
 
 
         var db = firebase.firestore();
@@ -256,7 +261,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         db.collection("participants")
           .doc($scope.userid)
           .onSnapshot(function(doc){
-            //showClickedButton(doc);
+            showClickedButton(doc);
           });
 
     //Read the user document data and write the clickd button value to the DOM
@@ -273,8 +278,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
 
-        $scope.parse = parseFloat($scope.tip).toFixed(2); 
-        $scope.finalAmount = $scope.parse + 5.00; 
+       
     });
 
     // tipApp.controller('customController', function($scope, $rootScope, $stateParams) {
