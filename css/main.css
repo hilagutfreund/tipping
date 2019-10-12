@@ -336,4 +336,6 @@ div.startButton {
 
 .typeOfTip img {
     margin: 0 0 20px;
+    height: 75px;
+    width: 75px;
 }
