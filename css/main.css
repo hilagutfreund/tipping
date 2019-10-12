@@ -1,78 +1,80 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 body {
-  background-color: #F0F2F3;
+    background-color: #f0f2f3;
 }
 
-.parent{
-  /*position: absolute;*/
-  top:60px;
-  left:0;
-  right:0;
-  bottom:0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+.parent {
+    /*position: absolute;*/
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.main{
+.main {
     padding: 5%;
-    background: #FEFEFE;
-    border: 1px solid #C2C7CC;
+    background: #fefefe;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
-    margin: auto 20px auto 20px;
+    margin: 20px;
+    max-width: 500px;
 }
 
-a{
-  display: flex; 
-  width: 100%;
-  /*flex-direction: row;
+.start a {
+    display: flex;
+    width: 100%;
+    /*flex-direction: row;
   flex-wrap: nowrap; */
 }
 
-div.title{
-  display: flex; 
- 
-  margin: 2% auto; 
-  text-align: center; 
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center; 
-  
-  font-family: roboto; 
-  
-  
+div.title {
+    display: flex;
+
+    margin: 2% auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: roboto;
 }
 
-img.circle{
-  max-height: 75px;
-  border-radius: 75px;
+img.circle {
+    max-height: 75px;
+    border-radius: 75px;
 }
 
-
-div.TipButtons{
+div.TipButtons {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
     /*height: 40%;*/
     flex-grow: 3;
-    margin: auto auto 20px auto; 
+    margin: auto auto 20px auto;
 }
 
+/* .TipButtons a {
+    display: block;
+} */
+
 /*big tip buttons*/
-div.tipAmount{
+/* div.tipAmount { */
+.TipButtons > a,
+.TipButtons > .tipAmount {
     /* position: relative; */
     min-width: 160px;
-    background: #FAFBFC;
-    border: 1px solid #C2C7CC;
+    background: #fafbfc;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
     text-align: center;
@@ -85,14 +87,14 @@ div.tipAmount{
     min-height: 50px;
 }
 
-div.tipText{
-  /*background: cyan;*/
+div.tipText {
+    /*background: cyan;*/
 }
 
-div.tipText >h2{
-  color: #2996CC; 
-  font-family: Roboto; 
-  margin-bottom: 2px;  
+div.tipText > h2 {
+    color: #2996cc;
+    font-family: Roboto;
+    margin-bottom: 2px;
 }
 
 /*extra misc buttons*/
@@ -106,16 +108,15 @@ div.tipMisc {
     /* height: 40%; */
     /* margin: auto auto; */
     flex-grow: 1;
-
 }
 
-div.tipMiscButtons{
+div.tipMiscButtons {
     position: relative;
     /* width: 100%; */
     /* height: 50%; */
     margin: 2% auto;
-    background: #FAFBFC;
-    border: 1px solid #C2C7CC;
+    background: #fafbfc;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
     text-align: center;
@@ -129,51 +130,53 @@ div.tipMiscButtons{
     min-height: 50px;
 }
 
-
-div > h5{
-  color: #2996CC; 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold; 
-  margin: auto;  
+div > h5 {
+    color: #2996cc;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    margin: auto;
 }
 
-div.header{
-  display:flex; 
-  flex-direction: row; 
-  align-items: stretch; 
+div.header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
 
-  margin: 2% auto; 
-  font-family: Roboto; 
-  color: #3D454C; 
+    margin: 2% auto;
+    font-family: Roboto;
+    color: #3d454c;
 }
 
-
-.fa, .fa-times{
-  color: #3D454C;
-  font-weight: 900; 
+.fa,
+.fa-times {
+    color: #3d454c;
+    font-weight: 900;
 }
 
-div.close{
-  position: absolute;
-  left: 2%;
-  top: 2%; 
+.close {
+    position: absolute;
+    left: 20px;
+    top: 20px;
 }
 
-.parent-confirm{
-  /*position: absolute;*/
-  top:60px;
-  left:0;
-  right:0;
-  bottom:0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: left;
-
+.close * {
+    margin: 0;
 }
 
-.main-confirm{
+.parent-confirm {
+    /*position: absolute;*/
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+.main-confirm {
     padding: 5%;
     /*background: #FEFEFE;*/
     /*border: 1px solid #C2C7CC;*/
@@ -181,18 +184,18 @@ div.close{
     box-sizing: border-box;
     border-radius: 3px;
     margin: auto 20px auto 20px;
-    align-items: left; 
-    text-align: left; 
+    align-items: left;
+    text-align: left;
 }
 
-div.receiptButtons{
+div.receiptButtons {
     position: relative;
-     width: 100%; 
+    width: 100%;
     /* height: 50%; */
     margin: 2% auto;
     /*background: #FAFBFC;*/
-    background: #FEFEFE;
-    border: 1px solid #C2C7CC;
+    background: #fefefe;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
     text-align: left;
@@ -206,42 +209,39 @@ div.receiptButtons{
     min-height: 50px;
 }
 
-.receiptButtonsText{
-  color: #000000; 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal; 
-  margin: auto;  
+.receiptButtonsText {
+    color: #000000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    margin: auto;
 }
 
-i{
-  margin-right: 10px;
+i {
+    margin-right: 10px;
 }
 
-
-
-.parent-start{
-  top:60px;
-  left:0;
-  right:0;
-  bottom:0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+.parent-start {
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.main-start{
+.main-start {
     padding: 5%;
     width: 80%;
-    background: #FEFEFE;
-    border: 1px solid #C2C7CC;
+    background: #fefefe;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
     margin: auto 20px auto 20px;
 }
 
-
-div.start-section{
+div.start-section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -250,13 +250,13 @@ div.start-section{
     width: 100%;
     /*height: 40%;*/
     flex-grow: 3;
-    margin: auto auto 20px auto; 
+    margin: auto auto 20px auto;
 }
 
 /*big tip buttons*/
-div.participant{
+div.participant {
     /* position: relative; */
-   /* min-width: 160px;
+    /* min-width: 160px;
     background: #FAFBFC;
     border: 1px solid #C2C7CC;
     box-sizing: border-box;
@@ -271,10 +271,9 @@ div.participant{
     min-height: 50px;
 }
 
-div.startText{
-  /*background: cyan;*/
+div.startText {
+    /*background: cyan;*/
 }
-
 
 /*extra misc buttons*/
 div.info {
@@ -287,10 +286,9 @@ div.info {
     /* height: 40%; */
     /* margin: auto auto; */
     flex-grow: 1;
-
 }
 
-div.startInfo{
+div.startInfo {
     position: relative;
     /* width: 100%; */
     /* height: 50%; */
@@ -310,19 +308,19 @@ div.startInfo{
     min-height: 50px;
 }
 
-div.start{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap; 
-  width: 100%;
+div.start {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
- div.startButton{
+div.startButton {
     position: relative;
-    width: 30%; 
+    width: 30%;
     margin: 2% auto;
-    background: #FAFBFC;
-    border: 1px solid #C2C7CC;
+    background: #fafbfc;
+    border: 1px solid #c2c7cc;
     box-sizing: border-box;
     border-radius: 3px;
     text-align: center;
@@ -336,6 +334,6 @@ div.start{
     min-height: 50px;
 }
 
-
-
-
+.typeOfTip img {
+    margin: 0 0 20px;
+}
