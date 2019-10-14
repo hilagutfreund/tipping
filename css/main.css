@@ -6,6 +6,7 @@ body {
     margin: 20px 20px 20px 20px;
 }
 
+
 .parent {
     /*position: absolute;*/
     top: 60px;
@@ -36,6 +37,39 @@ body {
     width: 100%;
     /*flex-direction: row;
   flex-wrap: nowrap; */
+}
+
+#backgroundmobile{
+    background: url(/img/LockScreen.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 100vw;
+    height:-webkit-fill-available;
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top:-10vw;
+    margin-bottom:-10vw;
+    z-index:1; 
+    /*position: relative;*/
+}
+
+#backgroundnotification{
+    background: url(/img/Notification.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 100vw;
+    height:-webkit-fill-available;
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top:-10vw;
+    margin-bottom:-10vw;
+    z-index:2;
 }
 
 div.title {
