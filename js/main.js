@@ -171,7 +171,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:$scope.data.IA,
             device:$scope.data.device,
             switch:$scope.data.switch, 
-            history: history; 
+            history: history
           });
         }
 
@@ -272,7 +272,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             device:$scope.data.device,
             switch:$scope.data.switch,
             finalTip: $scope.tip, 
-            history: history; 
+            history: history
           });
         }
 
