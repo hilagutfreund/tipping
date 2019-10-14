@@ -166,7 +166,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         
           db.collection("participants")
           .doc($scope.userid)
-          userDoc.set({
+          .set({
             clicked:val,
             IA:$scope.data.IA,
             device:$scope.data.device,
