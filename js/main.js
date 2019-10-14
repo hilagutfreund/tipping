@@ -145,7 +145,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         var db = firebase.firestore();
 
+        //var userDoc = db.collection("participants").doc($scope.userid);
+        
         //read current "user-1/clicked" value
+       
         db.collection("participants")
           .doc($scope.userid)
           .get()
@@ -157,15 +160,21 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     //Update user-1/clicked value
         function writeClickedButton(val){
+        var history; 
+            history = $scope.data.history || [];
+            history.push({clicked:val, IA: $scope.timestamp:new Date().toLocaleString()}); 
+        
           db.collection("participants")
           .doc($scope.userid)
-          .set({
+          userDoc.set({
             clicked:val,
             IA:$scope.data.IA,
             device:$scope.data.device,
-            switch:$scope.data.switch
+            switch:$scope.data.switch, 
+            history: history; 
           });
         }
+
 
     //Add buttons click handlers
         $(function(){
@@ -249,6 +258,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     //Update user-1/clicked value
         function writeClickedButton(val){
+
+        var history; 
+        history = $scope.data.history || [];
+        history.push({clicked:val, IA: $scope.timestamp:new Date().toLocaleString()}); 
+
           db.collection("participants")
           .doc($scope.userid)
           .set({
@@ -256,7 +270,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:$scope.data.IA,
             device:$scope.data.device,
             switch:$scope.data.switch,
-            finalTip: $scope.tip
+            finalTip: $scope.tip, 
+            history: history; 
           });
         }
 
