@@ -51,6 +51,12 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             controller: 'confirmationController'
          })
 
+         .state('mobileStart', {
+            url: '/mobileStart', 
+            templateUrl: "templates/mobileStart.html", 
+            controller: "mobileStartController"
+         })
+
          //  .state('custom', {
          //    url: '/custom',
          //    templateUrl: "templates/customScreen.html", 
@@ -145,10 +151,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         var db = firebase.firestore();
 
-        //var userDoc = db.collection("participants").doc($scope.userid);
         
         //read current "user-1/clicked" value
-       
         db.collection("participants")
           .doc($scope.userid)
           .get()
@@ -212,8 +216,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         //     $("#TipAmount").html(user1.clicked);
         //     console.log($scope.tipClicked); 
 
-        // }
-        
+        // }  
     });
 
 
@@ -221,28 +224,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         var usertip = $stateParams.useridtip; 
         console.log(usertip); 
         var strings = usertip.split("tip");
-        console.log(strings); 
+        //console.log(strings); 
         $scope.userid = strings[0]; 
         $scope.tip = strings[1];
-        console.log("pls be tip: " + $scope.tip);  
-        //var parse = parseFloat($scope.tip).toFixed(2); 
+        //console.log("pls be tip: " + $scope.tip);  
         var amount = parseFloat($scope.tip) + parseFloat(5); 
         $scope.finalAmount = amount.toFixed(2); 
         console.log($scope.finalAmount); 
-
-
-        // $scope.userid = $stateParams.userid; 
-        // console.log( "->user id from param:" + $stateParams.userid);
-        // console.log( "->user id from scope:" + $scope.userid);
-        // console.log( "->tip from scope:" + $scope.tip);
-        // console.log( "->tip parse:" + parseFloat($scope.tip).toFixed(2));
-
-        // $scope.parse = parseFloat($scope.tip).toFixed(2); 
-        // console.log ("scope.parse " + $scope.parse);
-        // $scope.finalAmount = $scope.parse + 5.00; 
-
-
-
 
         var db = firebase.firestore();
 
@@ -254,6 +242,25 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             $scope.data = doc.data(); 
             console.log($scope.data); 
             //showClickedButton(doc);
+          });
+
+
+        $(function(){
+          switch ($scope.data.switch){
+            case 'at':
+                $scope.url='ambiguous';
+                break;
+            case 'st':
+                $scope.url='tipjar';
+                break;
+            case 'bt':
+                $scope.url='barista'; 
+                break; 
+            default:
+                $scope.url="start";
+                break; 
+          }
+
           });
 
     //Update user-1/clicked value
@@ -284,6 +291,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           $("#None").click(function(){
             writeClickedButton("no receipt");
         });
+      });
 
     //Listen to user-1/* data changes
         db.collection("participants")
@@ -303,16 +311,12 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         //     console.log($scope.tipClicked); 
 
         // }
-
-
-
        
+    //});
+
     });
 
-    // tipApp.controller('customController', function($scope, $rootScope, $stateParams) {
-    //     function myCtrl($scope) {
-    //     $scope.myDecimal = 0;
-    //     }
+    tipApp.controller('mobileStartController', function($scope, $rootscope, $stateParams){
 
     });
 
