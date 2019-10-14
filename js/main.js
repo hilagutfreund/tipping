@@ -66,7 +66,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
    
     // create the controller and inject Angular's $scope
-    tipApp.controller('mainController', function($scope, $rootScope, $stateParams) {
+    tipApp.controller('mainController', function($scope, $rootScope, $timeout, $state, $stateParams) {
+        $rootScope.linkHistoryBack = '/';
+        $rootScope.$on('$stateChangeSuccess', function(event, to, toParams, from, fromParams) {
+            $rootScope.linkHistoryBack = $state.href(from, fromParams, {
+            absolute: true
+        });
+});
     });
     
     tipApp.controller('startController', function($scope, $rootScope, $timeout, $state, $stateParams) {
@@ -142,8 +148,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
        
     });
     
+  
 
-    tipApp.controller('tipController', function($scope, $state, $stateParams) {
+    tipApp.controller('tipController', function($scope, $rootScope, $timeout, $state, $stateParams) {
         $scope.userid = $stateParams.userid; 
         console.log( "->user id from param:" + $stateParams.userid);
         console.log( "->user id from scope:" + $scope.userid);
@@ -220,7 +227,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
 
 
-    tipApp.controller('confirmationController', function($scope, $stateParams) {
+      
+    tipApp.controller('confirmationController', function($scope, $rootScope, $timeout, $state, $stateParams) {
         var usertip = $stateParams.useridtip; 
         console.log(usertip); 
         var strings = usertip.split("tip");
@@ -242,30 +250,39 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             $scope.data = doc.data(); 
             console.log($scope.data); 
             //showClickedButton(doc);
+            findUrl($scope.data.switch); 
           });
 
+       
 
-        $(function(){
-          switch ($scope.data.switch){
+      $scope.getLinkUrl = function(){
+                return $state.href($scope.url, {userid: $scope.userid});
+            };
+
+
+        function findUrl(urldata){
+          switch (urldata){
             case 'at':
                 $scope.url='ambiguous';
+                console.log("url should be ambiguous: " + $scope.url); 
                 break;
             case 'st':
                 $scope.url='tipjar';
+                console.log("url should be tipjar: " + $scope.url);
                 break;
             case 'bt':
-                $scope.url='barista'; 
+                $scope.url='barista';
+                console.log("url should be tipjar: " + $scope.url); 
                 break; 
             default:
                 $scope.url="start";
                 break; 
           }
+         }
 
-          });
 
     //Update user-1/clicked value
         function writeClickedButton(val){
-
         var history; 
         history = $scope.data.history || [];
         history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, timestamp:new Date().toLocaleString()}); 
@@ -316,7 +333,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     });
 
-    tipApp.controller('mobileStartController', function($scope, $rootscope, $stateParams){
+    tipApp.controller('mobileStartController', function($scope, $rootScope, $timeout, $state, $stateParams){
 
     });
 
