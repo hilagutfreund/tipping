@@ -26,6 +26,10 @@ body {
     max-width: 500px;
 }
 
+.typeOfTip > p {
+  margin: 0 30px 10px;
+}
+
 .start a {
     display: flex;
     width: 100%;
@@ -72,7 +76,7 @@ div.TipButtons {
 .TipButtons > a,
 .TipButtons > .tipAmount {
     /* position: relative; */
-    min-width: 160px;
+    min-width: 120px;
     background: #fafbfc;
     border: 1px solid #c2c7cc;
     box-sizing: border-box;
