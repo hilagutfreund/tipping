@@ -162,7 +162,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         function writeClickedButton(val){
         var history; 
             history = $scope.data.history || [];
-            history.push({clicked:val, IA: $scope.timestamp:new Date().toLocaleString()}); 
+            history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, timestamp:new Date().toLocaleString()}); 
         
           db.collection("participants")
           .doc($scope.userid)
@@ -261,7 +261,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         var history; 
         history = $scope.data.history || [];
-        history.push({clicked:val, IA: $scope.timestamp:new Date().toLocaleString()}); 
+        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, timestamp:new Date().toLocaleString()}); 
+        
 
           db.collection("participants")
           .doc($scope.userid)
