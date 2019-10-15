@@ -41,16 +41,16 @@ body {
 
 #backgroundmobile{
     background: url(/img/LockScreen.svg);
+    background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
-    width: 100vw;
     height:-webkit-fill-available;
     position: fixed;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top:-10vw;
+    margin-top:-22vw;
     margin-bottom:-10vw;
     z-index:1; 
 }
