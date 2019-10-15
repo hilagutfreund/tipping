@@ -62,13 +62,15 @@ body {
     background-position: center; 
     height:-webkit-fill-available;
     position: fixed;
-    left: 41%;
-    right: 41%;
-    margin-left: -40vw;
+    left: 5px;
+    right: 5px;
+   /* margin-left: -40vw;
     margin-right: -40vw;
     margin-top:-10vw;
-    margin-bottom:-10vw;
+    margin-bottom:-10vw;*/
     z-index:2;
+    height: 75px;
+    top:35%; 
 }
 
 div.title {

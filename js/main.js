@@ -45,14 +45,20 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         })
 
-         .state('confirmation', {
-            url: '/confirmation?useridtip',
+         // .state('confirmation', {
+         //    url: '/confirmation?useridtip',
+         //    templateUrl: "templates/confirmationScreen.html", 
+         //    controller: 'confirmationController'
+         // })
+
+           .state('confirmation', {
+            url: '/confirmation?userid&tip',
             templateUrl: "templates/confirmationScreen.html", 
             controller: 'confirmationController'
          })
 
          .state('mobileStart', {
-            url: '/mobileStart', 
+            url: '/mobileStart?userid', 
             templateUrl: "templates/mobileStart.html", 
             controller: "mobileStartController"
          })
@@ -76,10 +82,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
     
     tipApp.controller('startController', function($scope, $rootScope, $timeout, $state, $stateParams) {
+
         $scope.message="hello";
         $scope.participants = [];
         $scope.selected = {
-            id:"x",
+            id: "x",
             IA:"",
             device:""
         };
@@ -87,13 +94,14 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         //select participant from list
         $scope.onSelectParticipant = function(){
             var newId = $scope.selected.id;
+            localStorage.setItem("selectedId",newId);
 
             var par = $scope.participants.find(p=>p.id==newId);
             if(par!==undefined){
                 $scope.selected.IA = par.data.IA;
                 $scope.selected.device = par.data.device;
                 $scope.selected.switch = par.data.switch; 
-                $scope.web = $scope.webPage($scope.selected.switch);
+                //$scope.web = $scope.webPage($scope.selected.switch);
             }else{
                 $scope.selected.IA = "";
                 $scope.selected.device = "";
@@ -105,13 +113,19 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           db.collection("participants")
             .get()
             .then(function(querySnapshot) {
+                var list = [];
                 querySnapshot.forEach(function(doc) {
                     // doc.data() is never undefined for query doc snapshots
                     //console.log(doc.id, " => ", doc.data());
-                    $timeout(function(){
-                        $scope.participants.push({id:doc.id, data:doc.data()}); 
-                    });
+                    // $timeout(function(){
+                    list.push({id:doc.id, data:doc.data()}); 
+                    // });
                     
+
+                });
+                $timeout(function(){
+                    $scope.participants =list;
+                    $scope.selected.id = localStorage.getItem("selectedId") || "x";
 
                 });
                 console.log($scope.participants); 
@@ -152,6 +166,10 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
     tipApp.controller('tipController', function($scope, $rootScope, $timeout, $state, $stateParams) {
         $scope.userid = $stateParams.userid; 
+        if(!$scope.userid){
+            $state.go('start',{},{location:"replace"}); 
+            return; 
+        }
         console.log( "->user id from param:" + $stateParams.userid);
         console.log( "->user id from scope:" + $scope.userid);
 
@@ -229,12 +247,15 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
       
     tipApp.controller('confirmationController', function($scope, $rootScope, $timeout, $state, $stateParams) {
-        var usertip = $stateParams.useridtip; 
-        console.log(usertip); 
-        var strings = usertip.split("tip");
+        //var usertip = $stateParams.useridtip; 
+        //console.log(usertip); 
+        //var strings = usertip.split("tip");
         //console.log(strings); 
-        $scope.userid = strings[0]; 
-        $scope.tip = strings[1];
+        //$scope.userid = strings[0]; 
+        //$scope.tip = strings[1];
+
+        $scope.userid = $stateParams.userid;
+        $scope.tip = $stateParams.tip; 
         //console.log("pls be tip: " + $scope.tip);  
         var amount = parseFloat($scope.tip) + parseFloat(5); 
         $scope.finalAmount = amount.toFixed(2); 
@@ -334,6 +355,64 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
 
     tipApp.controller('mobileStartController', function($scope, $rootScope, $timeout, $state, $stateParams){
+        $scope.userid = $stateParams.userid; 
+        if(!$scope.userid){
+            $state.go('start',{},{location:"replace"}); 
+            return; 
+        }
 
+        console.log( "->user id from param:" + $stateParams.userid);
+        console.log( "->user id from scope:" + $scope.userid);
+
+        $scope.url = ''; 
+        var db = firebase.firestore();
+
+        
+        //read current "user-1/clicked" value
+        db.collection("participants")
+          .doc($scope.userid)
+          .get()
+          .then( function(doc){
+            $scope.data = doc.data(); 
+            console.log($scope.data); 
+            //showClickedButton(doc);
+            findUrl($scope.data.switch);
+          });
+
+          $scope.pickURL = function(){
+            $state.go($scope.url, {userid: $scope.userid}); 
+          }
+
+        function findUrl(urldata){
+          switch (urldata){
+            case 'am':
+                $scope.url='ambiguous';
+                console.log("url should be ambiguous: " + $scope.url); 
+                break;
+            case 'sm':
+                $scope.url='tipjar';
+                console.log("url should be tipjar: " + $scope.url);
+                break;
+            case 'bm':
+                $scope.url='barista';
+                console.log("url should be barista: " + $scope.url); 
+                break; 
+              case 'at':
+            $scope.url='ambiguous';
+            console.log("url should be ambiguous: " + $scope.url); 
+            break;
+        case 'st':
+            $scope.url='tipjar';
+            console.log("url should be tipjar: " + $scope.url);
+            break;
+        case 'bt':
+            $scope.url='barista';
+            console.log("url should be barista: " + $scope.url); 
+            break; 
+            default:
+                $scope.url="start";
+                break; 
+          }
+         }
     });
 
