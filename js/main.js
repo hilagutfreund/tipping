@@ -78,7 +78,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             $rootScope.linkHistoryBack = $state.href(from, fromParams, {
             absolute: true
         });
-});
+      });
     });
     
     tipApp.controller('startController', function($scope, $rootScope, $timeout, $state, $stateParams) {
@@ -125,8 +125,11 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
                 });
                 $timeout(function(){
                     $scope.participants =list;
-                    $scope.selected.id = localStorage.getItem("selectedId") || "x";
-
+                    $timeout(function() {
+                      $scope.selected.id =
+                          localStorage.getItem("selectedId") || "x";
+                      $scope.onSelectParticipant();
+                  });
                 });
                 console.log($scope.participants); 
             })
