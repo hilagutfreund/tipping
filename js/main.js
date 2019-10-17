@@ -53,7 +53,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
          .state('mobileStart', {
             url: '/mobileStart?userid', 
-            templateUrl: "templates/mobileStart.html", 
+            templateUrl: "templates/mobilestart.html", 
             controller: "mobileStartController"
          })
 
