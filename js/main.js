@@ -45,12 +45,6 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         })
 
-         // .state('confirmation', {
-         //    url: '/confirmation?useridtip',
-         //    templateUrl: "templates/confirmationScreen.html", 
-         //    controller: 'confirmationController'
-         // })
-
            .state('confirmation', {
             url: '/confirmation?userid&tip',
             templateUrl: "templates/confirmationScreen.html", 
@@ -61,6 +55,18 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             url: '/mobileStart?userid', 
             templateUrl: "templates/mobileStart.html", 
             controller: "mobileStartController"
+         })
+
+           .state('mobileConfirm1', {
+            url: '/mobileConfirm1?userid', 
+            templateUrl: "templates/confirmationScreenMobile1.html", 
+            controller: "mobile1ConfirmationController"
+         })
+
+            .state('thanks', {
+            url: '/thanks?userid', 
+            templateUrl: "templates/thankyou.html", 
+            controller: "thankyouController"
          })
 
          //  .state('custom', {
@@ -200,6 +206,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:$scope.data.IA,
             device:$scope.data.device,
             switch:$scope.data.switch, 
+            showMobile: "false",
             history: history
           });
         }
@@ -262,6 +269,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         var amount = parseFloat($scope.tip) + parseFloat(5); 
         $scope.finalAmount = amount.toFixed(2); 
         console.log($scope.finalAmount); 
+
+        
 
         var db = firebase.firestore();
 
@@ -346,7 +355,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         function writeClickedButton(val){
         var history; 
         history = $scope.data.history || [];
-        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, timestamp:new Date().toLocaleString()}); 
+        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device,finalTip:$scope.tip, showMobile:$scope.mobile, timestamp:new Date().toLocaleString()}); 
         
 
           db.collection("participants")
@@ -357,6 +366,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             device:$scope.data.device,
             switch:$scope.data.switch,
             finalTip: $scope.tip, 
+            showMobile: "false", 
             history: history
           });
         }
@@ -401,6 +411,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             return; 
         }
 
+        $scope.notification = 'none'; 
+
         console.log( "->user id from param:" + $stateParams.userid);
         console.log( "->user id from scope:" + $scope.userid);
 
@@ -418,6 +430,28 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             //showClickedButton(doc);
             findUrl($scope.data.switch);
           });
+
+ //Listen to user-1/* data changes
+        db.collection("participants")
+          .doc($scope.userid)
+          .onSnapshot(function(doc){
+            showNotification(doc);
+          });
+
+    //Read the user document data and write the clickd button value to the DOM
+        function showNotification(doc){
+            var userData = doc.data();
+            console.log("IA : " + userData.IA); 
+            console.log("device : " + userData.device);
+            console.log("showMobile : " + userData.showMobile);
+            console.log("notification: " + $scope.notification);
+            $scope.notification = (userData.showMobile == 'true'); 
+            console.log($scope.notification); 
+
+        }
+
+
+
 
           $scope.pickURL = function(){
             $state.go($scope.url, {userid: $scope.userid}); 
@@ -455,4 +489,104 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           }
          }
     });
+
+    
+
+     tipApp.controller('mobile1ConfirmationController', function($scope, $rootScope, $timeout, $state, $stateParams) {
+    
+
+        $scope.userid = $stateParams.userid;
+        console.log("userid: " + $scope.userid);
+        var amount = parseFloat($scope.tip) + parseFloat(5); 
+        $scope.finalAmount = amount.toFixed(2); 
+        console.log($scope.finalAmount); 
+
+        var db = firebase.firestore();
+
+        //read current "user-1/clicked" value
+        db.collection("participants")
+          .doc($scope.userid)
+          .get()
+          .then( function(doc){
+            $scope.data = doc.data(); 
+            console.log($scope.data); 
+            //findUrl($scope.data.switch); 
+          });
+
+       
+
+        // $scope.pickURL = function(){
+        //     $state.go($scope.url, {userid: $scope.userid}); 
+        // }
+
+        // function findUrl(urldata){
+        //   switch (urldata){
+        //     case 'am':
+        //         $scope.url='ambiguous';
+        //         console.log("url should be ambiguous: " + $scope.url); 
+        //         break;
+        //     case 'sm':
+        //         $scope.url='tipjar';
+        //         console.log("url should be tipjar: " + $scope.url);
+        //         break;
+        //     case 'bm':
+        //         $scope.url='barista';
+        //         console.log("url should be barista: " + $scope.url); 
+        //         break; 
+        //       case 'at':
+        //     $scope.url='ambiguous';
+        //     console.log("url should be ambiguous: " + $scope.url); 
+        //     break;
+        // case 'st':
+        //     $scope.url='tipjar';
+        //     console.log("url should be tipjar: " + $scope.url);
+        //     break;
+        // case 'bt':
+        //     $scope.url='barista';
+        //     console.log("url should be barista: " + $scope.url); 
+        //     break; 
+        //     default:
+        //         $scope.url="start";
+        //         break; 
+        //   }
+        //  }
+
+
+
+    //Update user-1/clicked value
+        function writeClickedButton(val){
+        var history; 
+        history = $scope.data.history || [];
+        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, finalTip:"0", showMobile:"true", timestamp:new Date().toLocaleString()}); 
+        
+
+         db.collection("participants")
+          .doc($scope.userid)
+          .set({
+            clicked:val,
+            IA:$scope.data.IA,
+            device:$scope.data.device,
+            switch:$scope.data.switch,
+            finalTip: "0", 
+            showMobile: "true", 
+            history: history
+          });
+        }
+
+
+    //Add buttons click handlers
+        $(function(){
+          $("#Print").click(function(){
+            writeClickedButton("print receipt");
+          })
+          $("#None").click(function(){
+            writeClickedButton("no receipt");
+        });
+      });
+
+
+    });
+
+     tipApp.controller('thankyouController', function($scope, $rootScope, $timeout, $state, $stateParams) {
+     }); 
 
