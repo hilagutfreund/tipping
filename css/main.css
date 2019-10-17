@@ -44,15 +44,20 @@ body {
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
-    height:-webkit-fill-available;
+    /* height:-webkit-fill-available; */
     position: fixed;
-    left: 50%;
+    /* left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     margin-top:-22.5vw;
-    margin-bottom:-10vw;
+    margin-bottom:-10vw; */
     z-index:1; 
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
 }
 
 #backgroundnotification{
