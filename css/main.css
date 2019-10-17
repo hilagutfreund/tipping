@@ -40,7 +40,7 @@ body {
 }
 
 #backgroundmobile{
-    background: url(/img/LockScreen.svg);
+    background: url(../img/LockScreen.svg);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
@@ -61,7 +61,7 @@ body {
 }
 
 #backgroundnotification{
-    background: url(/img/Notification.svg);
+    background: url(../img/Notification.svg);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
