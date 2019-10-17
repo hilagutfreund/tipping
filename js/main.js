@@ -256,6 +256,8 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
         $scope.userid = $stateParams.userid;
         $scope.tip = $stateParams.tip; 
+        console.log("userid: " + $scope.userid);
+        console.log("tip: " + $scope.tip); 
         //console.log("pls be tip: " + $scope.tip);  
         var amount = parseFloat($scope.tip) + parseFloat(5); 
         $scope.finalAmount = amount.toFixed(2); 
