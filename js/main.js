@@ -358,7 +358,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         function writeClickedButton(val){
         var history; 
         history = $scope.data.history || [];
-        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device,finalTip:$scope.tip, showMobile:$scope.mobile, timestamp:new Date().toLocaleString()}); 
+        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device,finalTip:$scope.tip, showMobile:"false", timestamp:new Date().toLocaleString()}); 
         
 
           db.collection("participants")
@@ -438,7 +438,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         db.collection("participants")
           .doc($scope.userid)
           .onSnapshot(function(doc){
-            showNotification(doc);
+            $timeout(function(){
+                showNotification(doc);
+            });
           });
 
     //Read the user document data and write the clickd button value to the DOM
@@ -450,6 +452,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             console.log("notification: " + $scope.notification);
             $scope.notification = (userData.showMobile == 'true'); 
             console.log($scope.notification); 
+
 
         }
 
@@ -591,5 +594,6 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
     });
 
      tipApp.controller('thankyouController', function($scope, $rootScope, $timeout, $state, $stateParams) {
+
      }); 
 

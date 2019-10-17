@@ -180,7 +180,7 @@ div > h5 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    margin: auto;
+    /*margin: auto;*/
 }
 
 div.header {
@@ -246,9 +246,9 @@ div.receiptButtons {
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: center; /* used to be left*/
     /*align-items: left;*/
-    margin: 5px;
+    /*margin: 5px;*/
     /*box-sizing: content-box;*/
     flex-grow: 1;
     min-height: 50px;
@@ -259,7 +259,8 @@ div.receiptButtons {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    margin: auto;
+    /*margin: auto;*/
+    text-align: center;
 }
 
 i {
