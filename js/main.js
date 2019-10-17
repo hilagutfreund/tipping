@@ -278,30 +278,68 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
        
 
-      $scope.getLinkUrl = function(){
-                return $state.href($scope.url, {userid: $scope.userid});
-            };
 
+
+        $scope.pickURL = function(){
+            $state.go($scope.url, {userid: $scope.userid}); 
+        }
 
         function findUrl(urldata){
           switch (urldata){
-            case 'at':
+            case 'am':
                 $scope.url='ambiguous';
                 console.log("url should be ambiguous: " + $scope.url); 
                 break;
-            case 'st':
+            case 'sm':
                 $scope.url='tipjar';
                 console.log("url should be tipjar: " + $scope.url);
                 break;
-            case 'bt':
+            case 'bm':
                 $scope.url='barista';
-                console.log("url should be tipjar: " + $scope.url); 
+                console.log("url should be barista: " + $scope.url); 
                 break; 
+              case 'at':
+            $scope.url='ambiguous';
+            console.log("url should be ambiguous: " + $scope.url); 
+            break;
+        case 'st':
+            $scope.url='tipjar';
+            console.log("url should be tipjar: " + $scope.url);
+            break;
+        case 'bt':
+            $scope.url='barista';
+            console.log("url should be barista: " + $scope.url); 
+            break; 
             default:
                 $scope.url="start";
                 break; 
           }
          }
+
+      // $scope.getLinkUrl = function(){
+      //           return $state.href($scope.url, {userid: $scope.userid});
+      //       };
+
+
+      //   function findUrl(urldata){
+      //     switch (urldata){
+      //       case 'at':
+      //           $scope.url='ambiguous';
+      //           console.log("url should be ambiguous: " + $scope.url); 
+      //           break;
+      //       case 'st':
+      //           $scope.url='tipjar';
+      //           console.log("url should be tipjar: " + $scope.url);
+      //           break;
+      //       case 'bt':
+      //           $scope.url='barista';
+      //           console.log("url should be tipjar: " + $scope.url); 
+      //           break; 
+      //       default:
+      //           $scope.url="start";
+      //           break; 
+      //     }
+      //    }
 
 
     //Update user-1/clicked value
