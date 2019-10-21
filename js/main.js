@@ -209,7 +209,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             IA:$scope.data.IA,
             device:$scope.data.device,
             switch:$scope.data.switch, 
-            showMobile: "false",
+            showMobile: "off",
             history: history
           });
         }
@@ -369,7 +369,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             device:$scope.data.device,
             switch:$scope.data.switch,
             finalTip: $scope.tip, 
-            showMobile: "false", 
+            showMobile: "off", 
             history: history
           });
         }
@@ -414,7 +414,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             return; 
         }
 
-        $scope.notification = 'none'; 
+        $scope.notification = false; 
 
         console.log( "->user id from param:" + $stateParams.userid);
         console.log( "->user id from scope:" + $scope.userid);
@@ -450,7 +450,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             console.log("device : " + userData.device);
             console.log("showMobile : " + userData.showMobile);
             console.log("notification: " + $scope.notification);
-            $scope.notification = (userData.showMobile == 'true'); 
+            $scope.notification = (userData.showMobile == 'on'); 
             console.log($scope.notification); 
 
 
@@ -460,8 +460,28 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
           $scope.pickURL = function(){
-            $state.go($scope.url, {userid: $scope.userid}); 
+            $state.go($scope.url, {userid: $scope.userid});
+            writeClickedButton('notification');
           }
+
+        function writeClickedButton(val){
+            var history; 
+            history = $scope.data.history || [];
+            history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, showMobile:"off", timestamp:new Date().toLocaleString()}); 
+        
+
+             db.collection("participants")
+              .doc($scope.userid)
+              .set({
+                clicked:val,
+                IA:$scope.data.IA,
+                device:$scope.data.device,
+                switch:$scope.data.switch,
+                // finalTip: "0", 
+                showMobile: "off", 
+                history: history
+              });
+        }
 
         function findUrl(urldata){
           switch (urldata){
@@ -563,7 +583,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         function writeClickedButton(val){
         var history; 
         history = $scope.data.history || [];
-        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, finalTip:"0", showMobile:"true", timestamp:new Date().toLocaleString()}); 
+        history.push({clicked:val, IA:$scope.data.IA, device:$scope.data.device, finalTip:"0", showMobile:"on", timestamp:new Date().toLocaleString()}); 
         
 
          db.collection("participants")
@@ -574,7 +594,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
             device:$scope.data.device,
             switch:$scope.data.switch,
             finalTip: "0", 
-            showMobile: "true", 
+            showMobile: "on", 
             history: history
           });
         }
