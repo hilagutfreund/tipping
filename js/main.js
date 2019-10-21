@@ -428,10 +428,13 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .doc($scope.userid)
           .get()
           .then( function(doc){
-            $scope.data = doc.data(); 
-            console.log($scope.data); 
-            //showClickedButton(doc);
-            findUrl($scope.data.switch);
+            $timeout(function(){
+                $scope.data = doc.data(); 
+                showNotification(doc);
+                console.log($scope.data); 
+                //showClickedButton(doc);
+                findUrl($scope.data.switch);
+            })
           });
 
  //Listen to user-1/* data changes
