@@ -61,11 +61,11 @@ body {
 }
 
 #backgroundnotification{
-    background: url(../img/Notification.svg);
+    background: url(../img/Notification.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
-    height:-webkit-fill-available;
+    /*height:-webkit-fill-available;*/
     position: fixed;
     left: 5px;
     right: 5px;

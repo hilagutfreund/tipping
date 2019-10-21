@@ -440,7 +440,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .onSnapshot(function(doc){
             $timeout(function(){
                 showNotification(doc);
-            });
+            }, 10*1000);
           });
 
     //Read the user document data and write the clickd button value to the DOM
