@@ -61,7 +61,7 @@ body {
 }
 
 #backgroundnotification{
-    background: url(../img/Notification.png);
+    background: url(../img/Notification.svg);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
@@ -74,7 +74,7 @@ body {
     margin-top:-10vw;
     margin-bottom:-10vw;*/
     z-index:2;
-    height: 75px;
+    height: 10%;
     top:35%; 
 }
 
