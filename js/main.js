@@ -206,6 +206,7 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
           .doc($scope.userid)
           .set({
             clicked:val,
+            tip:val,
             IA:$scope.data.IA,
             device:$scope.data.device,
             switch:$scope.data.switch, 
@@ -216,23 +217,29 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
     //Add buttons click handlers
-        $(function(){
-          $("#Button_10").click(function(){
-            writeClickedButton("10%");
-          })
-          $("#Button_15").click(function(){
-            writeClickedButton("15%");
-          })
-          $("#Button_18").click(function(){
-            writeClickedButton("18%");
-          })
-          // $("#Button_custom").click(function(){
-          //   writeClickedButton("+custom tip");
-          // })
-          $("#Button_none").click(function(){
-            writeClickedButton("");
-          })
-        });
+        // $(function(){
+        //   $("#Button_10").click(function(){
+        //     writeClickedButton("10%");
+        //   })
+        //   $("#Button_15").click(function(){
+        //     writeClickedButton("15%");
+        //   })
+        //   $("#Button_18").click(function(){
+        //     writeClickedButton("18%");
+        //   })
+        //   // $("#Button_custom").click(function(){
+        //   //   writeClickedButton("+custom tip");
+        //   // })
+        //   $("#Button_none").click(function(){
+        //     writeClickedButton("");
+        //   })
+        // });
+
+        $scope.tipClicked = function(val){
+            writeClickedButton(val);
+            $state.go("confirmation",{userid:$scope.userid, tip:val});
+
+        }
 
     //Listen to user-1/* data changes
         // db.collection("participants")
@@ -375,14 +382,19 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
         }
 
     //Add buttons click handlers
-        $(function(){
-          $("#Print").click(function(){
-            writeClickedButton("print receipt");
-          })
-          $("#None").click(function(){
-            writeClickedButton("no receipt");
-        });
-      });
+      //   $(function(){
+      //     $("#Print").click(function(){
+      //       writeClickedButton("print receipt");
+      //     })
+      //     $("#None").click(function(){
+      //       writeClickedButton("no receipt");
+      //   });
+      // });
+
+    $scope.onBtnClick = function( msg ){
+        writeClickedButton(msg);
+        $state.go("thankyou")
+    }
 
     //Listen to user-1/* data changes
         db.collection("participants")
@@ -604,14 +616,23 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
 
 
     //Add buttons click handlers
-        $(function(){
-          $("#Print").click(function(){
-            writeClickedButton("print receipt");
-          })
-          $("#None").click(function(){
-            writeClickedButton("no receipt");
-        });
-      });
+      //   $(function(){
+      //     $("#Print").click(function(){
+      //       writeClickedButton("print receipt");
+      //     })
+      //     $("#None").click(function(){
+      //       writeClickedButton("no receipt");
+      //   });
+      // });
+      $scope.printReceipt=function(){
+        writeClickedButton("print receipt");
+        $state.go("thanks");
+      }
+
+      $scope.noThanks=function(){
+        writeClickedButton("no receipt");
+        $state.go("thanks");
+      }
 
 
     });
