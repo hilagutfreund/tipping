@@ -61,7 +61,7 @@ body {
 }
 
 #backgroundnotification{
-    background: url(../img/Notification.svg);
+    background: url(../img/Notification.png);
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
