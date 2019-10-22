@@ -7,36 +7,52 @@
       
       <!-- load bootstrap and fontawesome via CDN -->
 
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+      <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> -->
+      <link rel="stylesheet" href="imported/bootstrap.min.css" />
+
+      <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" /> -->
+      <link rel="stylesheet" href="imported/font-awesome.css" />
      
       <!-- fonts -->
-      <link href='https://fonts.googleapis.com/css?family=EB+Garamond|Quicksand:400,300,700|Marcellus+SC|Marcellus|Nova+Slim|Ribeye+Marrow|Almendra+Display|Playfair+Display:400,700italic,400italic,900italic,900' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="css/main.css" />
-
-      <link href="https://fonts.googleapis.com/css?family=Scada&display=swap" rel="stylesheet" />
-
-      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-
+      <!-- <link href='https://fonts.googleapis.com/css?family=EB+Garamond|Quicksand:400,300,700|Marcellus+SC|Marcellus|Nova+Slim|Ribeye+Marrow|Almendra+Display|Playfair+Display:400,700italic,400italic,900italic,900' rel='stylesheet' type='text/css'> -->
+      <link href='imported/eb_garamond.css' rel='stylesheet' type='text/css'>
+      <!-- <link href="https://fonts.googleapis.com/css?family=Scada&display=swap" rel="stylesheet" /> -->
+      <link href="imported/scada.css" rel="stylesheet" />
+      <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" /> -->
+      <link href="imported/roboto.css" rel="stylesheet" />
+      
       <!-- fav icon --> 
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
       <link rel="icon" href="/favicon.ico" type="image/x-icon">
       <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon"/>
-
+      
       <!-- load angular and angular route via CDN -->
-     <!--  <script src="https://use.fontawesome.com/46f772ac20.js"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js" type="text/javascript"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.js"></script>
-     
-      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script>
+      <!--  <script src="https://use.fontawesome.com/46f772ac20.js"></script> -->
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.js" type="text/javascript"></script> -->
+      <script src="imported/jquery.js" type="text/javascript"></script>
+      
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script> -->
+      <script src="imported/angular.min.js"></script>
+      
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
+      <script src="imported/angular-route.js"></script>
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.js"></script> -->
+      <script src="imported/angular-ui-router.js"></script>
+      
+      <!-- <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script> -->
+      <script src="imported/firebase-app.js"></script>
+
+      <!-- <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-auth.js"></script> -->
+      <script src="imported/firebase-auth.js"></script>
+
+      <!-- <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-firestore.js"></script> -->
+      <script src="imported/firebase-firestore.js"></script>
+      
       <!-- main js -->
+      <link rel="stylesheet" href="css/main.css" />
       <script src="js/main.js"></script>
-  </head>
+    </head>
 
 
   <body ng-controller="mainController">
