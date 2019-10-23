@@ -391,9 +391,9 @@ var tipApp = angular.module('tipApp', ['ngRoute', 'ui.router']);
       //   });
       // });
 
-    $scope.onBtnClick = function( msg ){
+    $scope.onBtnClick = function(msg){
         writeClickedButton(msg);
-        $state.go("thankyou")
+        $state.go("thanks")
     }
 
     //Listen to user-1/* data changes
